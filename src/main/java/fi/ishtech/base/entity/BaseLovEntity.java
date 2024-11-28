@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for entities of list of values
  *
  * @author Muneer Ahmed Syed
  */

@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for value objects (vo) of entities having standard columns
  *
  * @author Muneer Ahmed Syed
  */
@@ -24,10 +25,24 @@ public class BaseStandardNoIdEntityVo extends BaseAuditableEntityVo {
 	@JsonProperty
 	protected String description;
 
+	/**
+	 * Setter for isActive.
+	 *
+	 * @param isActive
+	 *
+	 * @see #setIsActive(boolean)
+	 */
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
+	/**
+	 * Getter for isActive.
+	 *
+	 * @see #getIsActive()
+	 *
+	 * @return boolean
+	 */
 	@JsonIgnore
 	public boolean isActive() {
 		return this.isActive;
@@ -36,9 +51,9 @@ public class BaseStandardNoIdEntityVo extends BaseAuditableEntityVo {
 	/**
 	 * To support noIsPrefix in dependent classes.
 	 *
-	 * @see #setActive(boolean)
-	 *
 	 * @param isActive
+	 *
+	 * @see #setActive(boolean)
 	 */
 	public void setIsActive(boolean isActive) {
 		this.setActive(isActive);
@@ -49,7 +64,7 @@ public class BaseStandardNoIdEntityVo extends BaseAuditableEntityVo {
 	 *
 	 * @see #isActive()
 	 *
-	 * @param isActive
+	 * @return boolean
 	 */
 	@JsonGetter
 	public boolean getIsActive() {

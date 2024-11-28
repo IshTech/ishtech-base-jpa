@@ -17,11 +17,20 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
 
 import fi.ishtech.base.entity.BaseEntity;
+import fi.ishtech.base.payload.filter.BaseEntityFilterParams;
 import fi.ishtech.base.payload.filter.BaseFilterParams;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * {@link Specification} base class with util methods for {@link Predicate}s and {@link Join}s
+ *
+ * @param <T> extends {@link BaseEntity}
+ * @param <P> extends {@link BaseEntityFilterParams}
+ *
+ * @author Muneer Ahmed Syed
+ */
 @RequiredArgsConstructor
 public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams> implements Specification<T> {
 
@@ -232,6 +241,7 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 	 * TODO: move to some util class
 	 *
 	 * @param input
+	 *
 	 * @return input padded with % on either side
 	 */
 	protected String padForSqlLike(String input) {
@@ -242,6 +252,7 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 	 * TODO: move to some util class
 	 *
 	 * @param input
+	 *
 	 * @return input padded with % on either side
 	 */
 	protected String padForSqlLike(Number input) {
@@ -252,6 +263,7 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 	 * TODO: move to some util class
 	 *
 	 * @param input
+	 *
 	 * @return input padded with % on either side
 	 */
 	protected String padForSqlLike(Integer input) {

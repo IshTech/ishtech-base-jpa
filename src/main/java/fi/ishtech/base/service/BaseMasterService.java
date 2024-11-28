@@ -10,6 +10,10 @@ import fi.ishtech.base.repo.BaseMasterRepo;
 import fi.ishtech.base.vo.BaseMasterEntityVo;
 
 /**
+ * Base interface for operations on master data entity classes
+ *
+ * @param <T> extends {@link BaseMasterEntity}
+ * @param <V> extends {@link BaseMasterEntityVo}
  *
  * @author Muneer Ahmed Syed
  */

@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for filter parameters for BaseStandardNoIdEntity in request
  *
  * @author Muneer Ahmed Syed
  */

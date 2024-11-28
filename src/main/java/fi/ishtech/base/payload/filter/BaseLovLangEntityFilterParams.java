@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for filter parameters for BaseLovLangEntity in request
  *
  * @author Muneer Ahmed Syed
  */

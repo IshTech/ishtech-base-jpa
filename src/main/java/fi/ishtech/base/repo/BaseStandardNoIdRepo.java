@@ -7,6 +7,10 @@ import org.springframework.data.repository.NoRepositoryBean;
 import fi.ishtech.base.entity.BaseStandardNoIdEntity;
 
 /**
+ * Base Repository
+ *
+ * @param <T>  extends {@link BaseStandardNoIdEntity}
+ * @param <ID> id
  *
  * @author Muneer Ahmed Syed
  */

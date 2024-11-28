@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for entities
  *
  * @author Muneer Ahmed Syed
  */

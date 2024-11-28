@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for value objects (vo) of entities with auto generated id
  *
  * @author Muneer Ahmed Syed
  */

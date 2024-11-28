@@ -15,6 +15,7 @@ import lombok.Data;
 import lombok.ToString;
 
 /**
+ * Base class for entities with auto generated id
  *
  * @author Muneer Ahmed Syed
  */

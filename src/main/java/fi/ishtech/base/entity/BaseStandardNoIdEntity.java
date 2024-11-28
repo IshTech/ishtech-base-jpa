@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for entities having standard columns
  *
  * @author Muneer Ahmed Syed
  */
@@ -25,10 +26,24 @@ public abstract class BaseStandardNoIdEntity extends BaseEntity {
 	@Column(name = "is_active", nullable = true, insertable = true, updatable = true)
 	protected boolean isActive;
 
+	/**
+	 * Setter for isActive.
+	 *
+	 * @param isActive
+	 *
+	 * @see #setIsActive(boolean)
+	 */
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
+	/**
+	 * Getter for isActive.
+	 *
+	 * @see #getIsActive()
+	 *
+	 * @return boolean
+	 */
 	public boolean isActive() {
 		return this.isActive;
 	}
@@ -36,9 +51,9 @@ public abstract class BaseStandardNoIdEntity extends BaseEntity {
 	/**
 	 * To support noIsPrefix in dependent classes.
 	 *
-	 * @see #setActive(boolean)
-	 *
 	 * @param isActive
+	 *
+	 * @see #setActive(boolean)
 	 */
 	public void setIsActive(boolean isActive) {
 		this.setActive(isActive);
@@ -49,7 +64,7 @@ public abstract class BaseStandardNoIdEntity extends BaseEntity {
 	 *
 	 * @see #isActive()
 	 *
-	 * @param isActive
+	 * @return boolean
 	 */
 	public boolean getIsActive() {
 		return this.isActive();

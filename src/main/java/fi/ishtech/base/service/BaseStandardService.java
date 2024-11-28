@@ -10,6 +10,10 @@ import fi.ishtech.base.repo.BaseStandardRepo;
 import fi.ishtech.base.vo.BaseStandardEntityVo;
 
 /**
+ * Base interface for operations on standard (with auto id) entity classes
+ *
+ * @param <T> extends {@link BaseStandardEntity}
+ * @param <V> extends {@link BaseStandardEntityVo}
  *
  * @author Muneer Ahmed Syed
  */

@@ -9,6 +9,7 @@ import fi.ishtech.base.entity.BaseMasterEntity;
 import fi.ishtech.base.vo.BaseMasterEntityVo;
 
 /**
+ * Base mapper for entities to/from vo for master data columns
  *
  * @author Muneer Ahmed Syed
  */

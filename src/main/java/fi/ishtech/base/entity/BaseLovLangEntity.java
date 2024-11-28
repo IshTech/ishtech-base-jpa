@@ -13,6 +13,9 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for entities of list of values in different languages
+ *
+ * @param <T> extends {@link BaseLovEntity}
  *
  * @author Muneer Ahmed Syed
  */

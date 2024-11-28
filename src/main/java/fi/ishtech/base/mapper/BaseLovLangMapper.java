@@ -9,6 +9,7 @@ import fi.ishtech.base.entity.BaseLovLangEntity;
 import fi.ishtech.base.vo.BaseLovLangEntityVo;
 
 /**
+ * Base mapper for entities to/from vo with lov and lang columns
  *
  * @author Muneer Ahmed Syed
  */

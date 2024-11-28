@@ -9,6 +9,7 @@ import fi.ishtech.base.entity.BaseStandardNoIdEntity;
 import fi.ishtech.base.vo.BaseStandardNoIdEntityVo;
 
 /**
+ * Base mapper for entities to/from vo with standard columns
  *
  * @author Muneer Ahmed Syed
  */

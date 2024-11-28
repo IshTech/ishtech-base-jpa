@@ -18,6 +18,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for entities having audit columns
  *
  * @author Muneer Ahmed Syed
  */

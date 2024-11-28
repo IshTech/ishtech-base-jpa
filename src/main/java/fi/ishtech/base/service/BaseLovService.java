@@ -11,6 +11,10 @@ import fi.ishtech.base.repo.BaseLovRepo;
 import fi.ishtech.base.vo.BaseLovEntityVo;
 
 /**
+ * Base interface for operations on lov entity classes
+ *
+ * @param <T> extends {@link BaseLovEntity}
+ * @param <V> extends {@link BaseLovEntityVo}
  *
  * @author Muneer Ahmed Syed
  */

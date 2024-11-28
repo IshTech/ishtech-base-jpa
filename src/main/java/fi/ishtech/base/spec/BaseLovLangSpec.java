@@ -7,15 +7,18 @@ import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 
+import org.springframework.data.jpa.domain.Specification;
+
 import fi.ishtech.base.entity.BaseLovEntity;
 import fi.ishtech.base.entity.BaseLovEntity_;
 import fi.ishtech.base.entity.BaseLovLangEntity;
 import fi.ishtech.base.payload.filter.BaseLovLangEntityFilterParams;
 
 /**
+ * {@link Specification} base class to build criteria
  *
- * @param &lt;T extends {@link BaseLovLangEntity}&gt;
- * @param &lt;P extends {@link BaseLovLangEntityFilterParams}&gt;
+ * @param <T> extends {@link BaseLovLangEntity}
+ * @param <P> extends {@link BaseLovLangEntityFilterParams}
  *
  * @author Muneer Ahmed Syed
  */
