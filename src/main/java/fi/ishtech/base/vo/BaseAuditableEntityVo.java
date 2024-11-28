@@ -1,0 +1,28 @@
+package fi.ishtech.base.vo;
+
+import java.time.LocalDateTime;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+/**
+ *
+ * @author Muneer Ahmed Syed
+ */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+public class BaseAuditableEntityVo extends BaseEntityVo {
+
+	private static final long serialVersionUID = 1400234507679207900L;
+
+	private Long createdBy;
+
+	private LocalDateTime createdAt;
+
+	private Long updatedBy;
+
+	private LocalDateTime updatedAt;
+
+}
