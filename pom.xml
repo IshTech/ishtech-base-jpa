@@ -14,7 +14,7 @@
 
 	<groupId>fi.ishtech.base</groupId>
 	<artifactId>ishtech-base-jpa</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0</version>
 
 	<name>ishtech-base-jpa</name>
 	<description>Base project for Spring Boot JPA</description>
