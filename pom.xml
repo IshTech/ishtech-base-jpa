@@ -20,7 +20,9 @@
 	<description>Base project for Spring Boot JPA</description>
 
 	<licenses>
-		<license />
+		<license>
+			<name>BSD-2-Clause</name>
+		</license>
 	</licenses>
 
 	<developers>
