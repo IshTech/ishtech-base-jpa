@@ -8,6 +8,7 @@ import fi.ishtech.base.entity.BaseAuditableEntity;
 import fi.ishtech.base.vo.BaseAuditableEntityVo;
 
 /**
+ * Base mapper for entities to/from vo with audit columns
  *
  * @author Muneer Ahmed Syed
  */

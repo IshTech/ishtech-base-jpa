@@ -11,13 +11,16 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 
+import org.springframework.data.jpa.domain.Specification;
+
 import fi.ishtech.base.entity.BaseAuditableEntity;
 import fi.ishtech.base.payload.filter.BaseAuditableEntityFilterParams;
 
 /**
+ * {@link Specification} base class to build criteria
  *
- * @param &lt;T extends {@link BaseAuditableEntity}&gt;
- * @param &lt;P extends {@link BaseAuditableEntityFilterParams}&gt;
+ * @param <T> extends BaseAuditableEntity
+ * @param <P> extends BaseAuditableEntityFilterParams
  *
  * @author Muneer Ahmed Syed
  */
@@ -26,6 +29,11 @@ public abstract class BaseAuditableSpec<T extends BaseAuditableEntity, P extends
 
 	private static final long serialVersionUID = 8663456839776921171L;
 
+	/**
+	 * Constructor with params
+	 *
+	 * @param params
+	 */
 	public BaseAuditableSpec(P params) {
 		super(params);
 	}

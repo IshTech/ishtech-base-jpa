@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for value objects (vo) of entities of master data tables
  *
  * @author Muneer Ahmed Syed
  */

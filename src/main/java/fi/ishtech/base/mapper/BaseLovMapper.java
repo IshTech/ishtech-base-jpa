@@ -10,6 +10,7 @@ import fi.ishtech.base.entity.BaseLovEntity;
 import fi.ishtech.base.vo.BaseLovEntityVo;
 
 /**
+ * Base mapper for entities to/from vo with lov columns
  *
  * @author Muneer Ahmed Syed
  */

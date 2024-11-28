@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for entities of master data tables
  *
  * @author Muneer Ahmed Syed
  */

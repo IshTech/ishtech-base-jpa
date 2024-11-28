@@ -7,6 +7,9 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for value objects (vo) of entities of list of values in different languages
+ *
+ * @param <T> extends {@link BaseLovEntityVo}
  *
  * @author Muneer Ahmed Syed
  */

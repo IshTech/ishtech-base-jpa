@@ -8,6 +8,11 @@ import fi.ishtech.base.repo.BaseStandardNoIdRepo;
 import fi.ishtech.base.vo.BaseStandardNoIdEntityVo;
 
 /**
+ * Base interface for operations on standard (with no auto id) entity classes
+ *
+ * @param <T>  extends {@link BaseStandardNoIdEntity}
+ * @param <V>  extends {@link BaseStandardNoIdEntityVo}
+ * @param <ID> id
  *
  * @author Muneer Ahmed Syed
  */

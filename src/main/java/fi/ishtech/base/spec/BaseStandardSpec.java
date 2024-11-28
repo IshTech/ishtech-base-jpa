@@ -8,13 +8,16 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 
+import org.springframework.data.jpa.domain.Specification;
+
 import fi.ishtech.base.entity.BaseStandardEntity;
 import fi.ishtech.base.payload.filter.BaseStandardEntityFilterParams;
 
 /**
+ * {@link Specification} base class to build criteria
  *
- * @param &lt;T extends {@link BaseStandardEntity}&gt;
- * @param &lt;P extends {@link BaseStandardEntityFilterParams}&gt;
+ * @param <T> extends {@link BaseStandardEntity}
+ * @param <P> extends {@link BaseStandardEntityFilterParams}
  *
  * @author Muneer Ahmed Syed
  */

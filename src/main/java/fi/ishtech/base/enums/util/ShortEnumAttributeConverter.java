@@ -8,6 +8,9 @@ import jakarta.persistence.AttributeConverter;
 import org.springframework.core.ResolvableType;
 
 /**
+ * Enum to Short conversion and vice-versa for entity attribute of enum type
+ *
+ * @param <T> Enum class type
  *
  * @author Muneer Ahmed Syed
  */

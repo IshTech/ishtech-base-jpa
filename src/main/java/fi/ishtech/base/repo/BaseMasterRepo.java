@@ -9,6 +9,9 @@ import org.springframework.data.repository.query.Param;
 import fi.ishtech.base.entity.BaseMasterEntity;
 
 /**
+ * Base Repository
+ *
+ * @param <T> extends {@link BaseMasterEntity}
  *
  * @author Muneer Ahmed Syed
  */

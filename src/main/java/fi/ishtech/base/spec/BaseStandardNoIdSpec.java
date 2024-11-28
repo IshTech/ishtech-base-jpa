@@ -9,13 +9,16 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 
+import org.springframework.data.jpa.domain.Specification;
+
 import fi.ishtech.base.entity.BaseStandardNoIdEntity;
 import fi.ishtech.base.payload.filter.BaseStandardNoIdEntityFilterParams;
 
 /**
+ * {@link Specification} base class to build criteria
  *
- * @param &lt;T extends {@link BaseStandardNoIdEntity}&gt;
- * @param &lt;P extends {@link BaseStandardNoIdEntityFilterParams}&gt;
+ * @param <T> extends {@link BaseStandardNoIdEntity}
+ * @param <P> extends {@link BaseStandardNoIdEntityFilterParams}
  *
  * @author Muneer Ahmed Syed
  */

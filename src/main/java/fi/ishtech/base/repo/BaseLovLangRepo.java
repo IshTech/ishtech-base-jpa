@@ -9,6 +9,9 @@ import fi.ishtech.base.entity.BaseLovEntity;
 import fi.ishtech.base.entity.BaseLovLangEntity;
 
 /**
+ * Base Repository
+ *
+ * @param <T> extends {@link BaseLovLangEntity}
  *
  * @author Muneer Ahmed Syed
  */

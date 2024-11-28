@@ -6,6 +6,7 @@ import fi.ishtech.base.entity.BaseEntity;
 import fi.ishtech.base.vo.BaseEntityVo;
 
 /**
+ * Base mapper for entities to/from vo
  *
  * @author Muneer Ahmed Syed
  */

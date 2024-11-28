@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for value objects (vo) of entities of list of values
  *
  * @author Muneer Ahmed Syed
  */

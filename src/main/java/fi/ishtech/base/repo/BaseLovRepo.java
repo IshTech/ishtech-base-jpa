@@ -10,6 +10,9 @@ import org.springframework.data.repository.query.Param;
 import fi.ishtech.base.entity.BaseLovEntity;
 
 /**
+ * Base Repository
+ *
+ * @param <T> extends {@link BaseLovEntity}
  *
  * @author Muneer Ahmed Syed
  */

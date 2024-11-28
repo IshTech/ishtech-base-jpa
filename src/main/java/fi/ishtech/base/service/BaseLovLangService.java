@@ -13,6 +13,10 @@ import fi.ishtech.base.vo.BaseLovLangEntityVo;
 import fi.ishtech.core.i18n.enums.LangEnum;
 
 /**
+ * Base interface for operations on lov lang entity classes
+ *
+ * @param <T> extends {@link BaseLovLangEntity}
+ * @param <V> extends {@link BaseLovLangEntityVo}
  *
  * @author Muneer Ahmed Syed
  */
@@ -37,6 +41,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
+	 * Finds by lovId, lang
 	 *
 	 * @param lovId
 	 * @param lang
@@ -47,7 +52,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
-	 * Finds by name, lang and if not present returns null
+	 * Finds by lovId, lang and if not present returns null
 	 *
 	 * @param lovId
 	 * @param lang
@@ -60,7 +65,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	/**
 	 * Finds by name, lang and if not present throws {@link NoSuchElementException}.
 	 *
-	 * @param lovId
+	 * @param lovName
 	 * @param lang
 	 * @return T
 	 */
@@ -81,8 +86,9 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
+	 * Finds by lovName, lang and if not present throws {@link NoSuchElementException}.
 	 *
-	 * @param lovId
+	 * @param lovName
 	 * @param lang
 	 * @return T
 	 */
@@ -110,6 +116,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
+	 * Finds all by lovId
 	 *
 	 * @param lovId
 	 * @return {@link List}&gt;T&lt;
@@ -119,8 +126,9 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
+	 * Finds all active by lovId
 	 *
-	 * @param lang
+	 * @param lovId
 	 * @return {@link List}&gt;T&lt;
 	 */
 	public default List<T> findAllActiveByLovId(Long lovId) {
@@ -128,8 +136,9 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
+	 * Finds all active by lovName
 	 *
-	 * @param lang
+	 * @param lovName
 	 * @return {@link List}&gt;T&lt;
 	 */
 	public default List<T> findAllActiveByLovName(String lovName) {

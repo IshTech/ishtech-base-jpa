@@ -15,6 +15,11 @@ import fi.ishtech.base.spec.BaseSpec;
 import fi.ishtech.base.vo.BaseEntityVo;
 
 /**
+ * Base interface for operations on entity classes
+ *
+ * @param <T>  extends {@link BaseEntity}
+ * @param <V>  extends {@link BaseEntityVo}
+ * @param <ID> id
  *
  * @author Muneer Ahmed Syed
  */
@@ -38,6 +43,7 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 	}
 
 	/**
+	 * Finds all
 	 *
 	 * @return {@link List} of {@link BaseEntity}
 	 */
@@ -46,10 +52,12 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 	}
 
 	/**
+	 * Finds all based on specification and pagination
+	 *
 	 * @param spec     {@link BaseSpec}
 	 * @param pageable {@link Pageable}
 	 *
-	 * @see {@link BaseFilterParams}
+	 * @see BaseFilterParams
 	 *
 	 * @return {@link Page} of {@link BaseEntity}
 	 */
@@ -58,11 +66,12 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 	}
 
 	/**
+	 * Finds all based on specification and pagination and maps to vo
 	 *
 	 * @param spec     {@link BaseSpec}
 	 * @param pageable {@link Pageable}
 	 *
-	 * @see {@link BaseFilterParams}
+	 * @see BaseFilterParams
 	 *
 	 * @return {@link Page} of {@link BaseEntity}
 	 */

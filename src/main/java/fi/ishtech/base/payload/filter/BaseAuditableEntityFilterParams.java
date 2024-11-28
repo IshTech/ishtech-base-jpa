@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
+ * Base class for filter parameters for BaseAuditableEntity in request
  *
  * @author Muneer Ahmed Syed
  */

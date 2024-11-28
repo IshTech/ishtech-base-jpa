@@ -5,6 +5,9 @@ import org.springframework.data.repository.NoRepositoryBean;
 import fi.ishtech.base.entity.BaseStandardEntity;
 
 /**
+ * Base Repository
+ *
+ * @param <T> extends {@link BaseStandardEntity}
  *
  * @author Muneer Ahmed Syed
  */
