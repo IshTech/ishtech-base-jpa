@@ -1,7 +1,6 @@
 package fi.ishtech.base.mapper;
 
 import org.mapstruct.BeanMapping;
-import org.mapstruct.InheritConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -33,8 +32,9 @@ public interface BaseStandardNoIdMapper extends BaseEntityMapper {
 	 * @param entity of type {@link BaseStandardNoIdEntity}
 	 * @return Vo of type {@link BaseStandardNoIdEntityVo}
 	 */
-	@BeanMapping(ignoreByDefault = true)
-	@InheritConfiguration(name = "toBaseStandardNoIdVo")
-	BaseStandardNoIdEntityVo toBriefVo(BaseStandardNoIdEntity entity);
+	@SuppressWarnings("unchecked")
+	default <E extends BaseStandardNoIdEntity, V extends BaseStandardNoIdEntityVo> V toBriefVo(E entity) {
+		return (V) toBaseStandardNoIdVo(entity);
+	}
 
 }

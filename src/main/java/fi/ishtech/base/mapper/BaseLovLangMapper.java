@@ -36,8 +36,9 @@ public interface BaseLovLangMapper extends BaseStandardMapper {
 	 * @param entity of type {@link BaseLovLangEntity}
 	 * @return Vo of type {@link BaseLovLangEntityVo}
 	 */
-	@BeanMapping(ignoreByDefault = true)
-	@InheritConfiguration(name = "toBaseLovLangBriefVo")
-	BaseLovLangEntityVo toBriefVo(BaseLovLangEntity entity);
+	@SuppressWarnings("unchecked")
+	default <E extends BaseLovLangEntity, V extends BaseLovLangEntityVo> V toBriefVo(E entity) {
+		return (V) toBaseLovLangBriefVo(entity);
+	}
 
 }

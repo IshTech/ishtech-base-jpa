@@ -33,8 +33,9 @@ public interface BaseStandardMapper extends BaseStandardNoIdMapper {
 	 * @param entity of type {@link BaseStandardEntity}
 	 * @return Vo of type {@link BaseStandardEntityVo}
 	 */
-	@BeanMapping(ignoreByDefault = true)
-	@InheritConfiguration(name = "toBaseStandardVo")
-	BaseStandardEntityVo toBriefVo(BaseStandardEntity entity);
+	@SuppressWarnings("unchecked")
+	default <E extends BaseStandardEntity, V extends BaseStandardEntityVo> V toBriefVo(E entity) {
+		return (V) toBaseStandardVo(entity);
+	}
 
 }
