@@ -1,6 +1,9 @@
 package fi.ishtech.base.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 import fi.ishtech.base.entity.BaseStandardNoIdEntity;
 import fi.ishtech.base.mapper.BaseStandardNoIdMapper;
@@ -31,6 +34,44 @@ public interface BaseStandardNoIdService<T extends BaseStandardNoIdEntity, V ext
 	 */
 	public default List<T> findAllActive() {
 		return getRepo().findAllByIsActiveTrue();
+	}
+
+	/**
+	 *
+	 * @param id
+	 * @return
+	 */
+	public default Optional<T> findOneById(ID id) {
+		return getRepo().findById(id);
+	}
+
+	/**
+	 *
+	 * @param id
+	 * @return T
+	 */
+	public default T findOneByIdOrElseNull(ID id) {
+		return this.findOneById(id).orElse(null);
+	}
+
+	/**
+	 * Finds by id and if not present, throws {@link NoSuchElementException}.
+	 *
+	 * @param id
+	 * @return T
+	 */
+	public default T findOneByIdOrElseThrow(ID id) {
+		return this.findOneById(id).orElseThrow();
+	}
+
+	/**
+	 * Finds by id and if not present, throws {@link RuntimeException}.
+	 *
+	 * @param id
+	 * @return T
+	 */
+	public default T findOneByIdOrElseThrow(ID id, Supplier<? extends RuntimeException> exceptionSupplier) {
+		return this.findOneById(id).orElseThrow(exceptionSupplier);
 	}
 
 }
