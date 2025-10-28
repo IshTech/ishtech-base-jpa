@@ -30,8 +30,9 @@ public interface BaseLovMapper extends BaseStandardMapper {
 	 * @param entity of type {@link BaseLovEntity}
 	 * @return Vo of type {@link BaseLovEntityVo}
 	 */
-	@BeanMapping(ignoreByDefault = true)
-	@InheritConfiguration(name = "toBaseLovBriefVo")
-	BaseLovEntityVo toBriefVo(BaseLovEntity entity);
+	@SuppressWarnings("unchecked")
+	default <E extends BaseLovEntity, V extends BaseLovEntityVo> V toBriefVo(E entity) {
+		return (V) toBaseLovBriefVo(entity);
+	}
 
 }

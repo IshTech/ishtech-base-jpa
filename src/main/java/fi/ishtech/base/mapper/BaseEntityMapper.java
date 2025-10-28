@@ -28,7 +28,7 @@ public interface BaseEntityMapper extends BaseMapper {
 		return toBriefVo(entity);
 	}
 
-	default  <E extends BaseEntity, V extends BaseEntityVo> V toDetailVo(E entity) {
+	default <E extends BaseEntity, V extends BaseEntityVo> V toDetailVo(E entity) {
 		return toSemiDetailVo(entity);
 	}
 

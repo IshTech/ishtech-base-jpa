@@ -35,8 +35,9 @@ public interface BaseMasterMapper extends BaseStandardMapper {
 	 * @param entity of type {@link BaseMasterEntity}
 	 * @return Vo of type {@link BaseMasterEntityVo}
 	 */
-	@BeanMapping(ignoreByDefault = true)
-	@InheritConfiguration(name = "toBaseMasterVo")
-	BaseMasterEntityVo toBriefVo(BaseMasterEntity entity);
+	@SuppressWarnings("unchecked")
+	default <E extends BaseMasterEntity, V extends BaseMasterEntityVo> V toBriefVo(E entity) {
+		return (V) toBaseMasterVo(entity);
+	}
 
 }
