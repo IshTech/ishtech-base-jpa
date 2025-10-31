@@ -54,7 +54,7 @@
 	</distributionManagement>
 
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 
 		<ishtech-i18n.version>2.1.0</ishtech-i18n.version>
 
