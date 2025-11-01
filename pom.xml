@@ -18,6 +18,12 @@
 
 	<name>ishtech-base-jpa</name>
 	<description>Base project for Spring Boot JPA</description>
+	<url>https://www.ishtech.fi/projects/ishtech-base-jpa</url>
+
+	<organization>
+		<name>IshTech</name>
+		<url>https://www.ishtech.fi</url>
+	</organization>
 
 	<licenses>
 		<license>
@@ -30,7 +36,6 @@
 			<name>Muneer Ahmed Syed</name>
 			<email>muneer@ishtech.fi</email>
 			<url>https://github.com/muneer2ishtech</url>
-			<organizationUrl>https://www.ishtech.fi</organizationUrl>
 			<roles>
 				<role>architect</role>
 				<role>developer</role>
