@@ -48,14 +48,14 @@
 	</scm>
 
 	<distributionManagement>
-		<snapshotRepository>
-			<id>central</id>
-			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
-		</snapshotRepository>
 		<repository>
 			<id>central</id>
 			<url>https://central.sonatype.com/repository/maven-releases/</url>
 		</repository>
+		<snapshotRepository>
+			<id>central</id>
+			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+		</snapshotRepository>
 	</distributionManagement>
 
 	<properties>
@@ -223,7 +223,7 @@
 
 	<profiles>
 		<profile>
-			<id>ossrh</id>
+			<id>central</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -250,6 +250,8 @@
 						<extensions>true</extensions>
 						<configuration>
 							<publishingServerId>central</publishingServerId>
+							<autoPublish>true</autoPublish>
+							<waitUntil>published</waitUntil>
 						</configuration>
 					</plugin>
 				</plugins>
