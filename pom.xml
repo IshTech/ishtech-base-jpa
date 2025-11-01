@@ -61,7 +61,7 @@
 	<properties>
 		<java.version>17</java.version>
 
-		<ishtech-i18n.version>2.1.0</ishtech-i18n.version>
+		<ishtech-i18n.version>3.0.0-SNAPSHOT</ishtech-i18n.version>
 
 		<mapstruct.version>1.6.3</mapstruct.version>
 		<mockito-core.version>5.20.0</mockito-core.version>
