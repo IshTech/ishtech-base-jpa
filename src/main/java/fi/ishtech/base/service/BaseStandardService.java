@@ -26,7 +26,7 @@ public interface BaseStandardService<T extends BaseStandardEntity, V extends Bas
 	@Override
 	BaseStandardMapper getMapper();
 
-	public default boolean existsById(Long id) {
+	default boolean existsById(Long id) {
 		return getRepo().existsById(id);
 	}
 
@@ -35,7 +35,7 @@ public interface BaseStandardService<T extends BaseStandardEntity, V extends Bas
 	 * @param id
 	 * @return
 	 */
-	public default Optional<T> findOneById(Long id) {
+	default Optional<T> findOneById(Long id) {
 		return getRepo().findById(id);
 	}
 
@@ -44,7 +44,7 @@ public interface BaseStandardService<T extends BaseStandardEntity, V extends Bas
 	 * @param id
 	 * @return T
 	 */
-	public default T findOneByIdOrElseNull(Long id) {
+	default T findOneByIdOrElseNull(Long id) {
 		return this.findOneById(id).orElse(null);
 	}
 
@@ -54,7 +54,7 @@ public interface BaseStandardService<T extends BaseStandardEntity, V extends Bas
 	 * @param id
 	 * @return T
 	 */
-	public default T findOneByIdOrElseThrow(Long id) {
+	default T findOneByIdOrElseThrow(Long id) {
 		return this.findOneById(id).orElseThrow();
 	}
 
@@ -64,12 +64,12 @@ public interface BaseStandardService<T extends BaseStandardEntity, V extends Bas
 	 * @param id
 	 * @return T
 	 */
-	public default T findOneByIdOrElseThrow(Long id, Supplier<? extends RuntimeException> exceptionSupplier) {
+	default T findOneByIdOrElseThrow(Long id, Supplier<? extends RuntimeException> exceptionSupplier) {
 		return this.findOneById(id).orElseThrow(exceptionSupplier);
 	}
 
 	@SuppressWarnings("unchecked")
-	public default V findOneByIdAndMapToVoOrElseThrow(Long id) {
+	default V findOneByIdAndMapToVoOrElseThrow(Long id) {
 		return (V) getMapper().toBriefVo(this.findOneByIdOrElseThrow(id));
 	}
 

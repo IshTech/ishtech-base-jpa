@@ -32,7 +32,7 @@ public interface BaseStandardNoIdService<T extends BaseStandardNoIdEntity, V ext
 	 *
 	 * @return {@link List} of {@link BaseStandardNoIdEntity}
 	 */
-	public default List<T> findAllActive() {
+	default List<T> findAllActive() {
 		return getRepo().findAllByIsActiveTrue();
 	}
 
@@ -41,7 +41,7 @@ public interface BaseStandardNoIdService<T extends BaseStandardNoIdEntity, V ext
 	 * @param id
 	 * @return
 	 */
-	public default Optional<T> findOneById(ID id) {
+	default Optional<T> findOneById(ID id) {
 		return getRepo().findById(id);
 	}
 
@@ -50,7 +50,7 @@ public interface BaseStandardNoIdService<T extends BaseStandardNoIdEntity, V ext
 	 * @param id
 	 * @return T
 	 */
-	public default T findOneByIdOrElseNull(ID id) {
+	default T findOneByIdOrElseNull(ID id) {
 		return this.findOneById(id).orElse(null);
 	}
 
@@ -70,7 +70,7 @@ public interface BaseStandardNoIdService<T extends BaseStandardNoIdEntity, V ext
 	 * @param id
 	 * @return T
 	 */
-	public default T findOneByIdOrElseThrow(ID id, Supplier<? extends RuntimeException> exceptionSupplier) {
+	default T findOneByIdOrElseThrow(ID id, Supplier<? extends RuntimeException> exceptionSupplier) {
 		return this.findOneById(id).orElseThrow(exceptionSupplier);
 	}
 

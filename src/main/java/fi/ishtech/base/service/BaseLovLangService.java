@@ -36,7 +36,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	 * @param lang
 	 * @return {@link Optional}&gt;T&lt;
 	 */
-	public default Optional<T> findOneByLovNameAndLang(String lovName, LangEnum lang) {
+	default Optional<T> findOneByLovNameAndLang(String lovName, LangEnum lang) {
 		return getRepo().findOneByLovNameAndLang(lovName, lang.name());
 	}
 
@@ -47,7 +47,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	 * @param lang
 	 * @return T
 	 */
-	public default Optional<T> findOneByLovIdAndLang(Long lovId, LangEnum lang) {
+	default Optional<T> findOneByLovIdAndLang(Long lovId, LangEnum lang) {
 		return getRepo().findOneByLovIdAndLang(lovId, lang.name());
 	}
 
@@ -58,7 +58,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	 * @param lang
 	 * @return T
 	 */
-	public default T findOneByLovIdAndLangOrElseNull(Long lovId, LangEnum lang) {
+	default T findOneByLovIdAndLangOrElseNull(Long lovId, LangEnum lang) {
 		return this.findOneByLovIdAndLang(lovId, lang).orElse(null);
 	}
 
@@ -69,7 +69,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	 * @param lang
 	 * @return T
 	 */
-	public default T findOneByLovNameAndLangOrElseNull(String lovName, LangEnum lang) {
+	default T findOneByLovNameAndLangOrElseNull(String lovName, LangEnum lang) {
 		return this.findOneByLovNameAndLang(lovName, lang).orElse(null);
 	}
 
@@ -80,7 +80,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	 * @param lang
 	 * @return T
 	 */
-	public default T findOneByLovIdAndLangOrElseThrow(Long lovId, LangEnum lang) {
+	default T findOneByLovIdAndLangOrElseThrow(Long lovId, LangEnum lang) {
 		return this.findOneByLovIdAndLang(lovId, lang)
 				.orElseThrow(() -> new NoSuchElementException("Not found for lov:" + lovId + ", lang:" + lang));
 	}
@@ -92,7 +92,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	 * @param lang
 	 * @return T
 	 */
-	public default T findOneByLovNameAndLangOrElseThrow(String lovName, LangEnum lang) {
+	default T findOneByLovNameAndLangOrElseThrow(String lovName, LangEnum lang) {
 		return this.findOneByLovNameAndLang(lovName, lang)
 				.orElseThrow(() -> new NoSuchElementException("Not found for lov:" + lovName + ", lang:" + lang));
 	}
@@ -102,7 +102,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	 * @param lang
 	 * @return {@link List}&gt;T&lt;
 	 */
-	public default List<T> findAllByLang(LangEnum lang) {
+	default List<T> findAllByLang(LangEnum lang) {
 		return getRepo().findAllByLang(lang.name());
 	}
 
@@ -111,7 +111,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	 * @param lang
 	 * @return {@link List}&gt;T&lt;
 	 */
-	public default List<T> findAllActiveByLang(LangEnum lang) {
+	default List<T> findAllActiveByLang(LangEnum lang) {
 		return getRepo().findAllByLangAndIsActiveTrue(lang.name());
 	}
 
@@ -121,7 +121,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	 * @param lovId
 	 * @return {@link List}&gt;T&lt;
 	 */
-	public default List<T> findAllByLovId(Long lovId) {
+	default List<T> findAllByLovId(Long lovId) {
 		return getRepo().findAllByLovId(lovId);
 	}
 
@@ -131,7 +131,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	 * @param lovId
 	 * @return {@link List}&gt;T&lt;
 	 */
-	public default List<T> findAllActiveByLovId(Long lovId) {
+	default List<T> findAllActiveByLovId(Long lovId) {
 		return getRepo().findAllByLovIdAndIsActiveTrue(lovId);
 	}
 
@@ -141,7 +141,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	 * @param lovName
 	 * @return {@link List}&gt;T&lt;
 	 */
-	public default List<T> findAllActiveByLovName(String lovName) {
+	default List<T> findAllActiveByLovName(String lovName) {
 		return getRepo().findAllByLovNameAndIsActiveTrue(lovName);
 	}
 

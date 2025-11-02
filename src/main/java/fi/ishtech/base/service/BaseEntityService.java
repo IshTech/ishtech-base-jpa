@@ -29,7 +29,7 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 
 	BaseEntityMapper getMapper();
 
-	public default EntityManager getEntityManager() {
+	default EntityManager getEntityManager() {
 		return null;
 	}
 
@@ -38,7 +38,7 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 	 *
 	 * @param entity
 	 */
-	public default void refresh(T entity) {
+	default void refresh(T entity) {
 		getEntityManager().refresh(entity);
 	}
 
@@ -47,7 +47,7 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 	 *
 	 * @return {@link List} of {@link BaseEntity}
 	 */
-	public default List<T> findAll() {
+	default List<T> findAll() {
 		return getRepo().findAll();
 	}
 
@@ -61,7 +61,7 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 	 *
 	 * @return {@link Page} of {@link BaseEntity}
 	 */
-	public default Page<T> findAll(BaseSpec<T, ? extends BaseFilterParams> spec, Pageable pageable) {
+	default Page<T> findAll(BaseSpec<T, ? extends BaseFilterParams> spec, Pageable pageable) {
 		return getRepo().findAll(spec, pageable);
 	}
 
@@ -75,7 +75,7 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 	 *
 	 * @return {@link Page} of {@link BaseEntity}
 	 */
-	public default Page<V> findAllAndMapToVo(BaseSpec<T, ? extends BaseFilterParams> spec, Pageable pageable) {
+	default Page<V> findAllAndMapToVo(BaseSpec<T, ? extends BaseFilterParams> spec, Pageable pageable) {
 		return this.findAll(spec, pageable).map(getMapper()::toBriefVo);
 	}
 

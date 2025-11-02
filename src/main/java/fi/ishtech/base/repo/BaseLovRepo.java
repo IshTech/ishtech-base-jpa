@@ -19,7 +19,7 @@ import fi.ishtech.base.entity.BaseLovEntity;
 @NoRepositoryBean
 public interface BaseLovRepo<T extends BaseLovEntity> extends BaseStandardRepo<T> {
 
-	public Optional<T> findOneByName(String name);
+	Optional<T> findOneByName(String name);
 
 	@Query("SELECT u.id FROM #{#entityName} u WHERE u.name = :name")
 	Long findIdByName(@Param("name") String name);

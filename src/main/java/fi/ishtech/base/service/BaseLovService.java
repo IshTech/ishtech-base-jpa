@@ -32,7 +32,7 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	 * @param name
 	 * @return T
 	 */
-	public default Optional<T> findOneByName(String name) {
+	default Optional<T> findOneByName(String name) {
 		return getRepo().findOneByName(name);
 	}
 
@@ -42,7 +42,7 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	 * @param name
 	 * @return T
 	 */
-	public default T findOneByNameOrElseNull(String name) {
+	default T findOneByNameOrElseNull(String name) {
 		return this.findOneByName(name).orElse(null);
 	}
 
@@ -52,7 +52,7 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	 * @param name
 	 * @return T
 	 */
-	public default T findOneByNameOrElseThrow(String name) {
+	default T findOneByNameOrElseThrow(String name) {
 		return this.findOneByName(name).orElseThrow(() -> new NoSuchElementException("Not found for lov:" + name));
 	}
 
@@ -62,7 +62,7 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	 * @param name
 	 * @return T
 	 */
-	public default T findOneByNameOrElseThrow(String name, Supplier<? extends RuntimeException> exceptionSupplier) {
+	default T findOneByNameOrElseThrow(String name, Supplier<? extends RuntimeException> exceptionSupplier) {
 		return this.findOneByName(name).orElseThrow(exceptionSupplier);
 	}
 
@@ -73,7 +73,7 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public default V findOneByNameAndMapToVo(String name) {
+	default V findOneByNameAndMapToVo(String name) {
 		return (V) getMapper().toBaseLovBriefVo(this.findOneByNameOrElseThrow(name));
 	}
 
@@ -82,11 +82,11 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	 * @param name
 	 * @return {@link Long} id
 	 */
-	public default Long findIdByName(String name) {
+	default Long findIdByName(String name) {
 		return getRepo().findIdByName(name);
 	}
 
-	public default List<V> findAllActiveWithLangsAndMapToVo() {
+	default List<V> findAllActiveWithLangsAndMapToVo() {
 		throw new UnsupportedOperationException();
 	}
 

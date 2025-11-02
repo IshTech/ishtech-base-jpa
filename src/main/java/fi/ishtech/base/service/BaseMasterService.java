@@ -32,7 +32,7 @@ public interface BaseMasterService<T extends BaseMasterEntity, V extends BaseMas
 	 * @param name
 	 * @return T
 	 */
-	public default Optional<T> findOneByName(String name) {
+	default Optional<T> findOneByName(String name) {
 		return getRepo().findOneByName(name);
 	}
 
@@ -42,7 +42,7 @@ public interface BaseMasterService<T extends BaseMasterEntity, V extends BaseMas
 	 * @param name
 	 * @return T
 	 */
-	public default T findOneByNameOrElseNull(String name) {
+	default T findOneByNameOrElseNull(String name) {
 		return this.findOneByName(name).orElse(null);
 	}
 
@@ -52,7 +52,7 @@ public interface BaseMasterService<T extends BaseMasterEntity, V extends BaseMas
 	 * @param name
 	 * @return T
 	 */
-	public default T findOneByNameOrElseThrow(String name) {
+	default T findOneByNameOrElseThrow(String name) {
 		return this.findOneByName(name).orElseThrow(() -> new NoSuchElementException("Not found for name:" + name));
 	}
 
@@ -62,7 +62,7 @@ public interface BaseMasterService<T extends BaseMasterEntity, V extends BaseMas
 	 * @param name
 	 * @return T
 	 */
-	public default T findOneByNameOrElseThrow(String name, Supplier<? extends RuntimeException> exceptionSupplier) {
+	default T findOneByNameOrElseThrow(String name, Supplier<? extends RuntimeException> exceptionSupplier) {
 		return this.findOneByName(name).orElseThrow(exceptionSupplier);
 	}
 
@@ -73,7 +73,7 @@ public interface BaseMasterService<T extends BaseMasterEntity, V extends BaseMas
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public default V findOneByNameAndMapToVo(String name) {
+	default V findOneByNameAndMapToVo(String name) {
 		return (V) getMapper().toBriefVo(this.findOneByNameOrElseThrow(name));
 	}
 
@@ -82,7 +82,7 @@ public interface BaseMasterService<T extends BaseMasterEntity, V extends BaseMas
 	 * @param name
 	 * @return {@link Long} id
 	 */
-	public default Long findIdByName(String name) {
+	default Long findIdByName(String name) {
 		return getRepo().findIdByName(name);
 	}
 
