@@ -18,18 +18,18 @@ import fi.ishtech.base.entity.BaseLovLangEntity;
 @NoRepositoryBean
 public interface BaseLovLangRepo<T extends BaseLovLangEntity<? extends BaseLovEntity>> extends BaseStandardRepo<T> {
 
-	public Optional<T> findOneByLovIdAndLang(Long lovId, String lang);
+	Optional<T> findOneByLovIdAndLang(Long lovId, String lang);
 
-	public Optional<T> findOneByLovNameAndLang(String lovName, String lang);
+	Optional<T> findOneByLovNameAndLang(String lovName, String lang);
 
-	public List<T> findAllByLang(String lang);
+	List<T> findAllByLang(String lang);
 
-	public List<T> findAllByLangAndIsActiveTrue(String lang);
+	List<T> findAllByLangAndIsActiveTrue(String lang);
 
-	public List<T> findAllByLovId(Long lovId);
+	List<T> findAllByLovId(Long lovId);
 
-	public List<T> findAllByLovIdAndIsActiveTrue(Long lovId);
+	List<T> findAllByLovIdAndIsActiveTrue(Long lovId);
 
-	public List<T> findAllByLovNameAndIsActiveTrue(String lovName);
+	List<T> findAllByLovNameAndIsActiveTrue(String lovName);
 
 }

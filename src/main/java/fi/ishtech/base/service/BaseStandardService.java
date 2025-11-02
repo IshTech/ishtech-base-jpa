@@ -26,50 +26,64 @@ public interface BaseStandardService<T extends BaseStandardEntity, V extends Bas
 	@Override
 	BaseStandardMapper getMapper();
 
-	public default boolean existsById(Long id) {
+	/**
+	 * Checks by id if entity exists or not
+	 *
+	 * @param id {@link Long}
+	 * @return {@code boolean}
+	 */
+	default boolean existsById(Long id) {
 		return getRepo().existsById(id);
 	}
 
 	/**
+	 * Finds by id
 	 *
-	 * @param id
-	 * @return
+	 * @param id {@link Long}
+	 * @return {@link Optional}&lt;T&gt;
 	 */
-	public default Optional<T> findOneById(Long id) {
+	default Optional<T> findOneById(Long id) {
 		return getRepo().findById(id);
 	}
 
 	/**
+	 * Finds by id and if not present returns null
 	 *
-	 * @param id
+	 * @param id {@link Long}
 	 * @return T
 	 */
-	public default T findOneByIdOrElseNull(Long id) {
+	default T findOneByIdOrElseNull(Long id) {
 		return this.findOneById(id).orElse(null);
 	}
 
 	/**
 	 * Finds by id and if not present, throws {@link NoSuchElementException}.
 	 *
-	 * @param id
+	 * @param id {@link Long}
 	 * @return T
 	 */
-	public default T findOneByIdOrElseThrow(Long id) {
+	default T findOneByIdOrElseThrow(Long id) {
 		return this.findOneById(id).orElseThrow();
 	}
 
 	/**
 	 * Finds by id and if not present, throws {@link RuntimeException}.
 	 *
-	 * @param id
+	 * @param id {@link Long}
 	 * @return T
 	 */
-	public default T findOneByIdOrElseThrow(Long id, Supplier<? extends RuntimeException> exceptionSupplier) {
+	default T findOneByIdOrElseThrow(Long id, Supplier<? extends RuntimeException> exceptionSupplier) {
 		return this.findOneById(id).orElseThrow(exceptionSupplier);
 	}
 
+	/**
+	 * Finds by id and map to VO and if not present, throws {@link NoSuchElementException}.
+	 *
+	 * @param id {@link Long}
+	 * @return V
+	 */
 	@SuppressWarnings("unchecked")
-	public default V findOneByIdAndMapToVoOrElseThrow(Long id) {
+	default V findOneByIdAndMapToVoOrElseThrow(Long id) {
 		return (V) getMapper().toBriefVo(this.findOneByIdOrElseThrow(id));
 	}
 
