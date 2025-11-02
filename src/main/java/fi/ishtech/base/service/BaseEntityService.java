@@ -29,25 +29,25 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 
 	BaseEntityMapper getMapper();
 
-	public default EntityManager getEntityManager() {
+	default EntityManager getEntityManager() {
 		return null;
 	}
 
 	/**
 	 * Refreshes entity from DB with latest values
 	 *
-	 * @param entity
+	 * @param entity T
 	 */
-	public default void refresh(T entity) {
+	default void refresh(T entity) {
 		getEntityManager().refresh(entity);
 	}
 
 	/**
 	 * Finds all
 	 *
-	 * @return {@link List} of {@link BaseEntity}
+	 * @return {@link List}&lt;T&gt;
 	 */
-	public default List<T> findAll() {
+	default List<T> findAll() {
 		return getRepo().findAll();
 	}
 
@@ -61,7 +61,7 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 	 *
 	 * @return {@link Page} of {@link BaseEntity}
 	 */
-	public default Page<T> findAll(BaseSpec<T, ? extends BaseFilterParams> spec, Pageable pageable) {
+	default Page<T> findAll(BaseSpec<T, ? extends BaseFilterParams> spec, Pageable pageable) {
 		return getRepo().findAll(spec, pageable);
 	}
 
@@ -75,7 +75,7 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 	 *
 	 * @return {@link Page} of {@link BaseEntity}
 	 */
-	public default Page<V> findAllAndMapToVo(BaseSpec<T, ? extends BaseFilterParams> spec, Pageable pageable) {
+	default Page<V> findAllAndMapToVo(BaseSpec<T, ? extends BaseFilterParams> spec, Pageable pageable) {
 		return this.findAll(spec, pageable).map(getMapper()::toBriefVo);
 	}
 
