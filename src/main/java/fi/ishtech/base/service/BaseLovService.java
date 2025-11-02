@@ -29,7 +29,7 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	/**
 	 * Finds by name
 	 *
-	 * @param name
+	 * @param name {@link String}
 	 * @return T
 	 */
 	default Optional<T> findOneByName(String name) {
@@ -39,7 +39,7 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	/**
 	 * Finds by name and if not present returns null
 	 *
-	 * @param name
+	 * @param name {@link String}
 	 * @return T
 	 */
 	default T findOneByNameOrElseNull(String name) {
@@ -49,7 +49,7 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	/**
 	 * Finds by name and if not present throws {@link NoSuchElementException}.
 	 *
-	 * @param name
+	 * @param name {@link String}
 	 * @return T
 	 */
 	default T findOneByNameOrElseThrow(String name) {
@@ -59,7 +59,7 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	/**
 	 * Finds by name and if not present throws exception of type {@link RuntimeException}.
 	 *
-	 * @param name
+	 * @param name {@link String}
 	 * @return T
 	 */
 	default T findOneByNameOrElseThrow(String name, Supplier<? extends RuntimeException> exceptionSupplier) {
@@ -69,8 +69,8 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	/**
 	 * Finds by name and maps to Vo, if not present throws {@link NoSuchElementException}
 	 *
-	 * @param name
-	 * @return
+	 * @param name {@link String}
+	 * @return V
 	 */
 	@SuppressWarnings("unchecked")
 	default V findOneByNameAndMapToVo(String name) {
@@ -78,14 +78,20 @@ public interface BaseLovService<T extends BaseLovEntity, V extends BaseLovEntity
 	}
 
 	/**
+	 * Finds id by name
 	 *
-	 * @param name
+	 * @param name {@link String}
 	 * @return {@link Long} id
 	 */
 	default Long findIdByName(String name) {
 		return getRepo().findIdByName(name);
 	}
 
+	/**
+	 * Finds all entities with isActive true and maps to Vo
+	 *
+	 * @return {@link List}&lt;V&gt;
+	 */
 	default List<V> findAllActiveWithLangsAndMapToVo() {
 		throw new UnsupportedOperationException();
 	}

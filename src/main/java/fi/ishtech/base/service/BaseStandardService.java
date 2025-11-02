@@ -26,22 +26,30 @@ public interface BaseStandardService<T extends BaseStandardEntity, V extends Bas
 	@Override
 	BaseStandardMapper getMapper();
 
+	/**
+	 * Checks by id if entity exists or not
+	 *
+	 * @param id {@link Long}
+	 * @return {@code boolean}
+	 */
 	default boolean existsById(Long id) {
 		return getRepo().existsById(id);
 	}
 
 	/**
+	 * Finds by id
 	 *
-	 * @param id
-	 * @return
+	 * @param id {@link Long}
+	 * @return {@link Optional}&lt;T&gt;
 	 */
 	default Optional<T> findOneById(Long id) {
 		return getRepo().findById(id);
 	}
 
 	/**
+	 * Finds by id and if not present returns null
 	 *
-	 * @param id
+	 * @param id {@link Long}
 	 * @return T
 	 */
 	default T findOneByIdOrElseNull(Long id) {
@@ -51,7 +59,7 @@ public interface BaseStandardService<T extends BaseStandardEntity, V extends Bas
 	/**
 	 * Finds by id and if not present, throws {@link NoSuchElementException}.
 	 *
-	 * @param id
+	 * @param id {@link Long}
 	 * @return T
 	 */
 	default T findOneByIdOrElseThrow(Long id) {
@@ -61,13 +69,19 @@ public interface BaseStandardService<T extends BaseStandardEntity, V extends Bas
 	/**
 	 * Finds by id and if not present, throws {@link RuntimeException}.
 	 *
-	 * @param id
+	 * @param id {@link Long}
 	 * @return T
 	 */
 	default T findOneByIdOrElseThrow(Long id, Supplier<? extends RuntimeException> exceptionSupplier) {
 		return this.findOneById(id).orElseThrow(exceptionSupplier);
 	}
 
+	/**
+	 * Finds by id and map to VO and if not present, throws {@link NoSuchElementException}.
+	 *
+	 * @param id {@link Long}
+	 * @return V
+	 */
 	@SuppressWarnings("unchecked")
 	default V findOneByIdAndMapToVoOrElseThrow(Long id) {
 		return (V) getMapper().toBriefVo(this.findOneByIdOrElseThrow(id));

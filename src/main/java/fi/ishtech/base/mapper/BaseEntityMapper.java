@@ -13,6 +13,12 @@ import fi.ishtech.base.vo.BaseEntityVo;
 @Mapper
 public interface BaseEntityMapper extends BaseMapper {
 
+	/**
+	 * Maps direct attributes from entity to vo
+	 *
+	 * @param entity E
+	 * @return V
+	 */
 	default <E extends BaseEntity, V extends BaseEntityVo> V toBriefVo(E entity) {
 		if (entity == null) {
 			return null;
@@ -24,10 +30,22 @@ public interface BaseEntityMapper extends BaseMapper {
 		return vo;
 	}
 
+	/**
+	 * Maps direct attributes and selective relational fields from entity to vo
+	 *
+	 * @param entity E
+	 * @return V
+	 */
 	default <E extends BaseEntity, V extends BaseEntityVo> V toSemiDetailVo(E entity) {
 		return toBriefVo(entity);
 	}
 
+	/**
+	 * Maps direct attributes and relational fields from entity to vo
+	 *
+	 * @param entity E
+	 * @return V
+	 */
 	default <E extends BaseEntity, V extends BaseEntityVo> V toDetailVo(E entity) {
 		return toSemiDetailVo(entity);
 	}

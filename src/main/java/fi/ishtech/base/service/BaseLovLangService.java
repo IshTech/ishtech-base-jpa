@@ -32,8 +32,8 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	/**
 	 * Finds by name and lang
 	 *
-	 * @param lovName
-	 * @param lang
+	 * @param lovName {@link String}
+	 * @param lang {@link LangEnum}
 	 * @return {@link Optional}&gt;T&lt;
 	 */
 	default Optional<T> findOneByLovNameAndLang(String lovName, LangEnum lang) {
@@ -41,10 +41,10 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
-	 * Finds by lovId, lang
+	 * Finds by lovId and lang
 	 *
-	 * @param lovId
-	 * @param lang
+	 * @param lovId {@link Long}
+	 * @param lang {@link LangEnum}
 	 * @return T
 	 */
 	default Optional<T> findOneByLovIdAndLang(Long lovId, LangEnum lang) {
@@ -52,10 +52,10 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
-	 * Finds by lovId, lang and if not present returns null
+	 * Finds by lovId and lang and if not present returns null
 	 *
-	 * @param lovId
-	 * @param lang
+	 * @param lovId {@link Long}
+	 * @param lang {@link LangEnum}
 	 * @return T
 	 */
 	default T findOneByLovIdAndLangOrElseNull(Long lovId, LangEnum lang) {
@@ -63,10 +63,10 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
-	 * Finds by name, lang and if not present throws {@link NoSuchElementException}.
+	 * Finds by name and lang and if not present throws {@link NoSuchElementException}.
 	 *
-	 * @param lovName
-	 * @param lang
+	 * @param lovName {@link String}
+	 * @param lang {@link LangEnum}
 	 * @return T
 	 */
 	default T findOneByLovNameAndLangOrElseNull(String lovName, LangEnum lang) {
@@ -74,10 +74,10 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
-	 * Finds by lovId, lang and if not present throws {@link NoSuchElementException}.
+	 * Finds by lovId and lang and if not present throws {@link NoSuchElementException}.
 	 *
-	 * @param lovId
-	 * @param lang
+	 * @param lovId {@link Long}
+	 * @param lang {@link LangEnum}
 	 * @return T
 	 */
 	default T findOneByLovIdAndLangOrElseThrow(Long lovId, LangEnum lang) {
@@ -86,10 +86,10 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
-	 * Finds by lovName, lang and if not present throws {@link NoSuchElementException}.
+	 * Finds by lovName and lang and if not present throws {@link NoSuchElementException}.
 	 *
-	 * @param lovName
-	 * @param lang
+	 * @param lovName {@link String}
+	 * @param lang {@link LangEnum}
 	 * @return T
 	 */
 	default T findOneByLovNameAndLangOrElseThrow(String lovName, LangEnum lang) {
@@ -98,8 +98,9 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
+	 * Finds all by lang
 	 *
-	 * @param lang
+	 * @param lang {@link LangEnum}
 	 * @return {@link List}&gt;T&lt;
 	 */
 	default List<T> findAllByLang(LangEnum lang) {
@@ -107,8 +108,9 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	}
 
 	/**
+	 * Finds all by lang with isActive true
 	 *
-	 * @param lang
+	 * @param lang {@link LangEnum}
 	 * @return {@link List}&gt;T&lt;
 	 */
 	default List<T> findAllActiveByLang(LangEnum lang) {
@@ -118,7 +120,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	/**
 	 * Finds all by lovId
 	 *
-	 * @param lovId
+	 * @param lovId {@link Long}
 	 * @return {@link List}&gt;T&lt;
 	 */
 	default List<T> findAllByLovId(Long lovId) {
@@ -128,7 +130,7 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	/**
 	 * Finds all active by lovId
 	 *
-	 * @param lovId
+	 * @param lovId {@link Long}
 	 * @return {@link List}&gt;T&lt;
 	 */
 	default List<T> findAllActiveByLovId(Long lovId) {
@@ -138,8 +140,8 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	/**
 	 * Finds all active by lovName
 	 *
-	 * @param lovName
-	 * @return {@link List}&gt;T&lt;
+	 * @param lovName {@link String}
+	 * @return {@link List}&lt;T&gt;
 	 */
 	default List<T> findAllActiveByLovName(String lovName) {
 		return getRepo().findAllByLovNameAndIsActiveTrue(lovName);

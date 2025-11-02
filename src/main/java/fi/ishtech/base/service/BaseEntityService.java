@@ -36,7 +36,7 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 	/**
 	 * Refreshes entity from DB with latest values
 	 *
-	 * @param entity
+	 * @param entity T
 	 */
 	default void refresh(T entity) {
 		getEntityManager().refresh(entity);
@@ -45,7 +45,7 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 	/**
 	 * Finds all
 	 *
-	 * @return {@link List} of {@link BaseEntity}
+	 * @return {@link List}&lt;T&gt;
 	 */
 	default List<T> findAll() {
 		return getRepo().findAll();

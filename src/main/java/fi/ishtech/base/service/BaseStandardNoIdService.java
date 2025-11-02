@@ -29,6 +29,7 @@ public interface BaseStandardNoIdService<T extends BaseStandardNoIdEntity, V ext
 	BaseStandardNoIdMapper getMapper();
 
 	/**
+	 * Finds all entities with isActive as true
 	 *
 	 * @return {@link List} of {@link BaseStandardNoIdEntity}
 	 */
@@ -37,17 +38,19 @@ public interface BaseStandardNoIdService<T extends BaseStandardNoIdEntity, V ext
 	}
 
 	/**
+	 * Finds by id
 	 *
-	 * @param id
-	 * @return
+	 * @param id ID
+	 * @return {@link Optional}&lt;T&gt;
 	 */
 	default Optional<T> findOneById(ID id) {
 		return getRepo().findById(id);
 	}
 
 	/**
+	 * Finds by id and if not present returns null
 	 *
-	 * @param id
+	 * @param id ID
 	 * @return T
 	 */
 	default T findOneByIdOrElseNull(ID id) {
@@ -57,17 +60,17 @@ public interface BaseStandardNoIdService<T extends BaseStandardNoIdEntity, V ext
 	/**
 	 * Finds by id and if not present, throws {@link NoSuchElementException}.
 	 *
-	 * @param id
+	 * @param id ID
 	 * @return T
 	 */
-	public default T findOneByIdOrElseThrow(ID id) {
+	default T findOneByIdOrElseThrow(ID id) {
 		return this.findOneById(id).orElseThrow();
 	}
 
 	/**
 	 * Finds by id and if not present, throws {@link RuntimeException}.
 	 *
-	 * @param id
+	 * @param id ID
 	 * @return T
 	 */
 	default T findOneByIdOrElseThrow(ID id, Supplier<? extends RuntimeException> exceptionSupplier) {
