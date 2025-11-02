@@ -14,7 +14,7 @@
 
 	<groupId>fi.ishtech.base</groupId>
 	<artifactId>ishtech-base-jpa</artifactId>
-	<version>2.0.0</version>
+	<version>3.0.0</version>
 
 	<name>ishtech-base-jpa</name>
 	<description>Base project for Spring Boot JPA</description>
@@ -47,9 +47,9 @@
 	</scm>
 
 	<properties>
-		<java.version>21</java.version>
+		<java.version>25</java.version>
 
-		<ishtech-i18n.version>4.0.0</ishtech-i18n.version>
+		<ishtech-i18n.version>5.0.0</ishtech-i18n.version>
 
 		<mapstruct.version>1.6.3</mapstruct.version>
 		<mockito-core.version>5.20.0</mockito-core.version>
