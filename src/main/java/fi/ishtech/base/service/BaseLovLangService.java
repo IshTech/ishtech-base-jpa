@@ -32,116 +32,118 @@ public interface BaseLovLangService<T extends BaseLovLangEntity<? extends BaseLo
 	/**
 	 * Finds by name and lang
 	 *
-	 * @param lovName
-	 * @param lang
+	 * @param lovName {@link String}
+	 * @param lang {@link LangEnum}
 	 * @return {@link Optional}&gt;T&lt;
 	 */
-	public default Optional<T> findOneByLovNameAndLang(String lovName, LangEnum lang) {
+	default Optional<T> findOneByLovNameAndLang(String lovName, LangEnum lang) {
 		return getRepo().findOneByLovNameAndLang(lovName, lang.name());
 	}
 
 	/**
-	 * Finds by lovId, lang
+	 * Finds by lovId and lang
 	 *
-	 * @param lovId
-	 * @param lang
+	 * @param lovId {@link Long}
+	 * @param lang {@link LangEnum}
 	 * @return T
 	 */
-	public default Optional<T> findOneByLovIdAndLang(Long lovId, LangEnum lang) {
+	default Optional<T> findOneByLovIdAndLang(Long lovId, LangEnum lang) {
 		return getRepo().findOneByLovIdAndLang(lovId, lang.name());
 	}
 
 	/**
-	 * Finds by lovId, lang and if not present returns null
+	 * Finds by lovId and lang and if not present returns null
 	 *
-	 * @param lovId
-	 * @param lang
+	 * @param lovId {@link Long}
+	 * @param lang {@link LangEnum}
 	 * @return T
 	 */
-	public default T findOneByLovIdAndLangOrElseNull(Long lovId, LangEnum lang) {
+	default T findOneByLovIdAndLangOrElseNull(Long lovId, LangEnum lang) {
 		return this.findOneByLovIdAndLang(lovId, lang).orElse(null);
 	}
 
 	/**
-	 * Finds by name, lang and if not present throws {@link NoSuchElementException}.
+	 * Finds by name and lang and if not present throws {@link NoSuchElementException}.
 	 *
-	 * @param lovName
-	 * @param lang
+	 * @param lovName {@link String}
+	 * @param lang {@link LangEnum}
 	 * @return T
 	 */
-	public default T findOneByLovNameAndLangOrElseNull(String lovName, LangEnum lang) {
+	default T findOneByLovNameAndLangOrElseNull(String lovName, LangEnum lang) {
 		return this.findOneByLovNameAndLang(lovName, lang).orElse(null);
 	}
 
 	/**
-	 * Finds by lovId, lang and if not present throws {@link NoSuchElementException}.
+	 * Finds by lovId and lang and if not present throws {@link NoSuchElementException}.
 	 *
-	 * @param lovId
-	 * @param lang
+	 * @param lovId {@link Long}
+	 * @param lang {@link LangEnum}
 	 * @return T
 	 */
-	public default T findOneByLovIdAndLangOrElseThrow(Long lovId, LangEnum lang) {
+	default T findOneByLovIdAndLangOrElseThrow(Long lovId, LangEnum lang) {
 		return this.findOneByLovIdAndLang(lovId, lang)
 				.orElseThrow(() -> new NoSuchElementException("Not found for lov:" + lovId + ", lang:" + lang));
 	}
 
 	/**
-	 * Finds by lovName, lang and if not present throws {@link NoSuchElementException}.
+	 * Finds by lovName and lang and if not present throws {@link NoSuchElementException}.
 	 *
-	 * @param lovName
-	 * @param lang
+	 * @param lovName {@link String}
+	 * @param lang {@link LangEnum}
 	 * @return T
 	 */
-	public default T findOneByLovNameAndLangOrElseThrow(String lovName, LangEnum lang) {
+	default T findOneByLovNameAndLangOrElseThrow(String lovName, LangEnum lang) {
 		return this.findOneByLovNameAndLang(lovName, lang)
 				.orElseThrow(() -> new NoSuchElementException("Not found for lov:" + lovName + ", lang:" + lang));
 	}
 
 	/**
+	 * Finds all by lang
 	 *
-	 * @param lang
+	 * @param lang {@link LangEnum}
 	 * @return {@link List}&gt;T&lt;
 	 */
-	public default List<T> findAllByLang(LangEnum lang) {
+	default List<T> findAllByLang(LangEnum lang) {
 		return getRepo().findAllByLang(lang.name());
 	}
 
 	/**
+	 * Finds all by lang with isActive true
 	 *
-	 * @param lang
+	 * @param lang {@link LangEnum}
 	 * @return {@link List}&gt;T&lt;
 	 */
-	public default List<T> findAllActiveByLang(LangEnum lang) {
+	default List<T> findAllActiveByLang(LangEnum lang) {
 		return getRepo().findAllByLangAndIsActiveTrue(lang.name());
 	}
 
 	/**
 	 * Finds all by lovId
 	 *
-	 * @param lovId
+	 * @param lovId {@link Long}
 	 * @return {@link List}&gt;T&lt;
 	 */
-	public default List<T> findAllByLovId(Long lovId) {
+	default List<T> findAllByLovId(Long lovId) {
 		return getRepo().findAllByLovId(lovId);
 	}
 
 	/**
 	 * Finds all active by lovId
 	 *
-	 * @param lovId
+	 * @param lovId {@link Long}
 	 * @return {@link List}&gt;T&lt;
 	 */
-	public default List<T> findAllActiveByLovId(Long lovId) {
+	default List<T> findAllActiveByLovId(Long lovId) {
 		return getRepo().findAllByLovIdAndIsActiveTrue(lovId);
 	}
 
 	/**
 	 * Finds all active by lovName
 	 *
-	 * @param lovName
-	 * @return {@link List}&gt;T&lt;
+	 * @param lovName {@link String}
+	 * @return {@link List}&lt;T&gt;
 	 */
-	public default List<T> findAllActiveByLovName(String lovName) {
+	default List<T> findAllActiveByLovName(String lovName) {
 		return getRepo().findAllByLovNameAndIsActiveTrue(lovName);
 	}
 

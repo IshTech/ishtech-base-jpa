@@ -29,48 +29,51 @@ public interface BaseStandardNoIdService<T extends BaseStandardNoIdEntity, V ext
 	BaseStandardNoIdMapper getMapper();
 
 	/**
+	 * Finds all entities with isActive as true
 	 *
 	 * @return {@link List} of {@link BaseStandardNoIdEntity}
 	 */
-	public default List<T> findAllActive() {
+	default List<T> findAllActive() {
 		return getRepo().findAllByIsActiveTrue();
 	}
 
 	/**
+	 * Finds by id
 	 *
-	 * @param id
-	 * @return
+	 * @param id ID
+	 * @return {@link Optional}&lt;T&gt;
 	 */
-	public default Optional<T> findOneById(ID id) {
+	default Optional<T> findOneById(ID id) {
 		return getRepo().findById(id);
 	}
 
 	/**
+	 * Finds by id and if not present returns null
 	 *
-	 * @param id
+	 * @param id ID
 	 * @return T
 	 */
-	public default T findOneByIdOrElseNull(ID id) {
+	default T findOneByIdOrElseNull(ID id) {
 		return this.findOneById(id).orElse(null);
 	}
 
 	/**
 	 * Finds by id and if not present, throws {@link NoSuchElementException}.
 	 *
-	 * @param id
+	 * @param id ID
 	 * @return T
 	 */
-	public default T findOneByIdOrElseThrow(ID id) {
+	default T findOneByIdOrElseThrow(ID id) {
 		return this.findOneById(id).orElseThrow();
 	}
 
 	/**
 	 * Finds by id and if not present, throws {@link RuntimeException}.
 	 *
-	 * @param id
+	 * @param id ID
 	 * @return T
 	 */
-	public default T findOneByIdOrElseThrow(ID id, Supplier<? extends RuntimeException> exceptionSupplier) {
+	default T findOneByIdOrElseThrow(ID id, Supplier<? extends RuntimeException> exceptionSupplier) {
 		return this.findOneById(id).orElseThrow(exceptionSupplier);
 	}
 

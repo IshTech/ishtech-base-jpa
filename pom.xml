@@ -14,7 +14,7 @@
 
 	<groupId>fi.ishtech.base</groupId>
 	<artifactId>ishtech-base-jpa</artifactId>
-	<version>0.4.0-SNAPSHOT</version>
+	<version>2.0.0</version>
 
 	<name>ishtech-base-jpa</name>
 	<description>Base project for Spring Boot JPA</description>
@@ -46,27 +46,14 @@
 		<url>https://github.com/ishtech/ishtech-base-jpa</url>
 	</scm>
 
-	<distributionManagement>
-		<repository>
-			<id>central</id>
-			<url>https://central.sonatype.com/repository/maven-releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>central</id>
-			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-
 	<properties>
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 
-		<ishtech-i18n.version>3.0.0-SNAPSHOT</ishtech-i18n.version>
+		<ishtech-i18n.version>4.0.0</ishtech-i18n.version>
 
 		<mapstruct.version>1.6.3</mapstruct.version>
 		<mockito-core.version>5.20.0</mockito-core.version>
 
-		<maven-source-plugin.version>3.3.1</maven-source-plugin.version>
-		<maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
 		<maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
 
 		<central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
@@ -190,7 +177,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>${maven-source-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -203,7 +189,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>${maven-javadoc-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -222,7 +207,7 @@
 
 	<profiles>
 		<profile>
-			<id>central</id>
+			<id>gpg</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -242,13 +227,20 @@
 							</execution>
 						</executions>
 					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>central-publishing</id>
+			<build>
+				<plugins>
 					<plugin>
 						<groupId>org.sonatype.central</groupId>
 						<artifactId>central-publishing-maven-plugin</artifactId>
 						<version>${central-publishing-maven-plugin.version}</version>
 						<extensions>true</extensions>
 						<configuration>
-							<publishingServerId>central</publishingServerId>
+							<publishingServerId>central-publishing</publishingServerId>
 							<autoPublish>true</autoPublish>
 							<waitUntil>published</waitUntil>
 						</configuration>
