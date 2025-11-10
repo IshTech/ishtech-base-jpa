@@ -14,7 +14,7 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public abstract class BaseStandardNoIdEntityFilterParams extends BaseAuditableEntityFilterParams {
+public abstract class BaseStandardNoIdEntityFilterParams extends BaseEntityFilterParams {
 
 	@Serial
 	private static final long serialVersionUID = 5094236893124339566L;

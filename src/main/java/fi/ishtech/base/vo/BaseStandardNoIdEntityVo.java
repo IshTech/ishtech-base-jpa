@@ -18,7 +18,7 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class BaseStandardNoIdEntityVo extends BaseAuditableEntityVo {
+public class BaseStandardNoIdEntityVo extends BaseEntityVo {
 
 	@Serial
 	private static final long serialVersionUID = -7333245854918653037L;
