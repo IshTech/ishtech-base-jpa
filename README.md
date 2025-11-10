@@ -1,2 +1,2 @@
 # ishtech-base-jpa
-Base project for Spring Boot JPA
+A foundational Spring Boot JPA library providing a reusable boilerplate for entity, repository, service, specification, and mapper layers. It encapsulates common CRUD patterns, filtering mechanisms, and mapping logic through well-structured base classes and interfaces. This helps keep business modules lightweight, letting them focus only on domain-specific logic while inheriting standardized behavior and conventions.
