@@ -2,9 +2,10 @@ package fi.ishtech.base.vo;
 
 import java.io.Serial;
 
+import jakarta.validation.constraints.Positive;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
