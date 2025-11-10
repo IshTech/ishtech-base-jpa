@@ -2,7 +2,7 @@ package fi.ishtech.base.payload.filter;
 
 import java.io.Serial;
 
-import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,7 +21,7 @@ public abstract class BaseStandardEntityFilterParams extends BaseStandardNoIdEnt
 	@Serial
 	private static final long serialVersionUID = 6966264259842692602L;
 
-	@Positive
+	@PositiveOrZero
 	protected Long id;
 
 	protected boolean idLikeSearch = false;
