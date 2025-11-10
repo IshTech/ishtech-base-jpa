@@ -1,5 +1,7 @@
 package fi.ishtech.base.vo;
 
+import java.io.Serial;
+
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,6 +20,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class BaseStandardNoIdEntityVo extends BaseAuditableEntityVo {
 
+	@Serial
 	private static final long serialVersionUID = -7333245854918653037L;
 
 	protected boolean isActive;

@@ -1,5 +1,7 @@
 package fi.ishtech.base.entity;
 
+import java.io.Serial;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -25,6 +27,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public abstract class BaseLovLangEntity<T extends BaseLovEntity> extends BaseStandardEntity {
 
+	@Serial
 	private static final long serialVersionUID = 6838611459522981673L;
 
 	@Column(name = "lov_id", nullable = false, insertable = true, updatable = false)

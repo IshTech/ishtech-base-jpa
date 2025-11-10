@@ -1,5 +1,6 @@
 package fi.ishtech.base.entity;
 
+import java.io.Serial;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -30,6 +31,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public abstract class BaseAuditableEntity extends BaseEntity {
 
+	@Serial
 	private static final long serialVersionUID = -2330487755033212668L;
 
 	@CreatedBy

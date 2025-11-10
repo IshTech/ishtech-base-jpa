@@ -1,5 +1,7 @@
 package fi.ishtech.base.payload.filter;
 
+import java.io.Serial;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -14,6 +16,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public abstract class BaseLovLangEntityWithoutLovFilterParams extends BaseStandardEntityFilterParams {
 
+	@Serial
 	private static final long serialVersionUID = 7610668123991731277L;
 
 	protected Long lovId;

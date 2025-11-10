@@ -1,5 +1,7 @@
 package fi.ishtech.base.entity;
 
+import java.io.Serial;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 
@@ -18,6 +20,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public abstract class BaseLovEntity extends BaseStandardEntity {
 
+	@Serial
 	private static final long serialVersionUID = -7299891922991606083L;
 
 	@Column(name = "name", nullable = false, insertable = true, updatable = false, unique = true)

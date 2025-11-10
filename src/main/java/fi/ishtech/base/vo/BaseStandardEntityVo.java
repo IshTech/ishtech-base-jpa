@@ -1,5 +1,6 @@
 package fi.ishtech.base.vo;
 
+import java.io.Serial;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -18,6 +19,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class BaseStandardEntityVo extends BaseStandardNoIdEntityVo {
 
+	@Serial
 	private static final long serialVersionUID = 9217741044047249388L;
 
 	@JsonProperty

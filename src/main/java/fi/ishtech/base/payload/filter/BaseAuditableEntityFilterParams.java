@@ -1,5 +1,6 @@
 package fi.ishtech.base.payload.filter;
 
+import java.io.Serial;
 import java.time.LocalDateTime;
 
 import lombok.Data;
@@ -16,6 +17,7 @@ import lombok.ToString;
 @ToString(callSuper = false)
 public abstract class BaseAuditableEntityFilterParams extends BaseEntityFilterParams {
 
+	@Serial
 	private static final long serialVersionUID = 8218319420897955842L;
 
 	private Long createdBy;

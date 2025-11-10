@@ -1,5 +1,7 @@
 package fi.ishtech.base.payload.filter;
 
+import java.io.Serial;
+
 import jakarta.validation.constraints.Positive;
 
 import lombok.Data;
@@ -16,6 +18,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public abstract class BaseStandardEntityFilterParams extends BaseStandardNoIdEntityFilterParams {
 
+	@Serial
 	private static final long serialVersionUID = 6966264259842692602L;
 
 	@Positive

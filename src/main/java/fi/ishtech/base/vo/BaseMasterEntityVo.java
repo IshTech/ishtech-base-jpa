@@ -1,5 +1,7 @@
 package fi.ishtech.base.vo;
 
+import java.io.Serial;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
@@ -17,6 +19,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class BaseMasterEntityVo extends BaseStandardEntityVo {
 
+	@Serial
 	private static final long serialVersionUID = -6678121111551066535L;
 
 	@NotBlank

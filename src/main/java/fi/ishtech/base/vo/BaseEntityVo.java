@@ -1,5 +1,7 @@
 package fi.ishtech.base.vo;
 
+import java.io.Serial;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -14,6 +16,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class BaseEntityVo implements BaseVo {
 
+	@Serial
 	private static final long serialVersionUID = -1227556520257089092L;
 
 }
