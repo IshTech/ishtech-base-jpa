@@ -74,7 +74,7 @@ public interface BaseMasterService<T extends BaseMasterEntity, V extends BaseMas
 	 */
 	@SuppressWarnings("unchecked")
 	default V findOneByNameAndMapToVo(String name) {
-		return (V) getMapper().toBriefVo(this.findOneByNameOrElseThrow(name));
+		return (V) getMapper().toBaseMasterVo(this.findOneByNameOrElseThrow(name));
 	}
 
 	/**

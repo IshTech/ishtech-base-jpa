@@ -30,15 +30,4 @@ public interface BaseLovLangMapper extends BaseStandardMapper {
 	@Mapping(source = "lang", target = "lang")
 	BaseLovLangEntityVo toBaseLovLangBriefVo(BaseLovLangEntity entity);
 
-	/**
-	 * Maps non relation fields.
-	 *
-	 * @param entity of type {@link BaseLovLangEntity}
-	 * @return Vo of type {@link BaseLovLangEntityVo}
-	 */
-	@SuppressWarnings("unchecked")
-	default <E extends BaseLovLangEntity, V extends BaseLovLangEntityVo> V toBriefVo(E entity) {
-		return (V) toBaseLovLangBriefVo(entity);
-	}
-
 }

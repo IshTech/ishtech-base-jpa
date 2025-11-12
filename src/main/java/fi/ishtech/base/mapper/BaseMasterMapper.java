@@ -29,15 +29,4 @@ public interface BaseMasterMapper extends BaseStandardMapper {
 	@Mapping(source = "lang", target = "lang")
 	BaseMasterEntityVo toBaseMasterVo(BaseMasterEntity entity);
 
-	/**
-	 * Maps non relation fields.
-	 *
-	 * @param entity of type {@link BaseMasterEntity}
-	 * @return Vo of type {@link BaseMasterEntityVo}
-	 */
-	@SuppressWarnings("unchecked")
-	default <E extends BaseMasterEntity, V extends BaseMasterEntityVo> V toBriefVo(E entity) {
-		return (V) toBaseMasterVo(entity);
-	}
-
 }

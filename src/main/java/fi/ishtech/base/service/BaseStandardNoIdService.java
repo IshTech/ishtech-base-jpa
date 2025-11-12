@@ -90,7 +90,7 @@ public interface BaseStandardNoIdService<T extends BaseStandardNoIdEntity, V ext
 	 */
 	@SuppressWarnings("unchecked")
 	default V findOneByIdAndMapToVoOrElseThrow(ID id) {
-		return (V) getMapper().toBriefVo(this.findOneByIdOrElseThrow(id));
+		return (V) getMapper().toBaseStandardNoIdVo(this.findOneByIdOrElseThrow(id));
 	}
 
 	/**
@@ -103,9 +103,10 @@ public interface BaseStandardNoIdService<T extends BaseStandardNoIdEntity, V ext
 	 *
 	 * @return {@link Page} of {@link BaseStandardNoIdEntityVo}
 	 */
+	@SuppressWarnings("unchecked")
 	default Page<V> findAllAndMapToVo(BaseStandardNoIdSpec<T, ? extends BaseStandardNoIdEntityFilterParams> spec,
 			Pageable pageable) {
-		return this.findAll(spec, pageable).map(getMapper()::toBriefVo);
+		return (Page<V>) this.findAll(spec, pageable).map(getMapper()::toBaseStandardNoIdVo);
 	}
 
 }

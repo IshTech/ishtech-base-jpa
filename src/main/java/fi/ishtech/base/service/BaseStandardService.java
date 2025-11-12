@@ -89,7 +89,7 @@ public interface BaseStandardService<T extends BaseStandardEntity, V extends Bas
 	 */
 	@SuppressWarnings("unchecked")
 	default V findOneByIdAndMapToVoOrElseThrow(Long id) {
-		return (V) getMapper().toBriefVo(this.findOneByIdOrElseThrow(id));
+		return (V) getMapper().toBaseStandardVo(this.findOneByIdOrElseThrow(id));
 	}
 
 	/**

@@ -24,15 +24,4 @@ public interface BaseLovMapper extends BaseStandardMapper {
 	@Mapping(source = "displayOrder", target = "displayOrder")
 	BaseLovEntityVo toBaseLovBriefVo(BaseLovEntity entity);
 
-	/**
-	 * Maps non relation fields.
-	 *
-	 * @param entity of type {@link BaseLovEntity}
-	 * @return Vo of type {@link BaseLovEntityVo}
-	 */
-	@SuppressWarnings("unchecked")
-	default <E extends BaseLovEntity, V extends BaseLovEntityVo> V toBriefVo(E entity) {
-		return (V) toBaseLovBriefVo(entity);
-	}
-
 }
