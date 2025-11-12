@@ -8,6 +8,9 @@ import fi.ishtech.base.vo.BaseEntityVo;
 /**
  * Base mapper for entities to/from vo
  *
+ * @see BaseEntity
+ * @see BaseEntityVo
+ *
  * @author Muneer Ahmed Syed
  */
 @Mapper
