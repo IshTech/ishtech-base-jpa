@@ -182,6 +182,20 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	protected void addPredicateGE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Short attribValue,
+			String attribName) {
+		if (attribValue != null) {
+			predicates.add(cb.ge(root.get(attribName), attribValue));
+		}
+	}
+
+	protected void addPredicateLE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Short attribValue,
+			String attribName) {
+		if (attribValue != null) {
+			predicates.add(cb.le(root.get(attribName), attribValue));
+		}
+	}
+
 	protected void addPredicateGE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb,
 			LocalDateTime attribValue, String attribName) {
 		if (attribValue != null) {
