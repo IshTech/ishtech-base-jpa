@@ -1,5 +1,6 @@
 package fi.ishtech.base.vo;
 
+import java.io.Serial;
 import java.time.LocalDateTime;
 
 import lombok.Data;
@@ -16,6 +17,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class BaseAuditableEntityVo extends BaseEntityVo {
 
+	@Serial
 	private static final long serialVersionUID = 1400234507679207900L;
 
 	private Long createdBy;

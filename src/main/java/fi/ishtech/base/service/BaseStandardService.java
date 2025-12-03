@@ -4,9 +4,14 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import fi.ishtech.base.entity.BaseStandardEntity;
 import fi.ishtech.base.mapper.BaseStandardMapper;
+import fi.ishtech.base.payload.filter.BaseStandardEntityFilterParams;
 import fi.ishtech.base.repo.BaseStandardRepo;
+import fi.ishtech.base.spec.BaseStandardSpec;
 import fi.ishtech.base.vo.BaseStandardEntityVo;
 
 /**
@@ -84,7 +89,23 @@ public interface BaseStandardService<T extends BaseStandardEntity, V extends Bas
 	 */
 	@SuppressWarnings("unchecked")
 	default V findOneByIdAndMapToVoOrElseThrow(Long id) {
-		return (V) getMapper().toBriefVo(this.findOneByIdOrElseThrow(id));
+		return (V) getMapper().toBaseStandardVo(this.findOneByIdOrElseThrow(id));
+	}
+
+	/**
+	 * Finds all based on specification and pagination and maps to vo
+	 *
+	 * @param spec     {@link BaseStandardSpec}
+	 * @param pageable {@link Pageable}
+	 *
+	 * @see BaseStandardEntityFilterParams
+	 *
+	 * @return {@link Page} of {@link BaseStandardEntityVo}
+	 */
+	@SuppressWarnings("unchecked")
+	default Page<V> findAllAndMapToVo(BaseStandardSpec<T, ? extends BaseStandardEntityFilterParams> spec,
+			Pageable pageable) {
+		return (Page<V>) this.findAll(spec, pageable).map(getMapper()::toBaseStandardVo);
 	}
 
 }

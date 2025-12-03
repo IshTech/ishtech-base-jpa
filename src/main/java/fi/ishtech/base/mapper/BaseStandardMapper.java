@@ -27,15 +27,4 @@ public interface BaseStandardMapper extends BaseStandardNoIdMapper {
 	@Mapping(source = "id", target = "id")
 	BaseStandardEntityVo toBaseStandardVo(BaseStandardEntity entity);
 
-	/**
-	 * Maps non relation fields.
-	 *
-	 * @param entity of type {@link BaseStandardEntity}
-	 * @return Vo of type {@link BaseStandardEntityVo}
-	 */
-	@SuppressWarnings("unchecked")
-	default <E extends BaseStandardEntity, V extends BaseStandardEntityVo> V toBriefVo(E entity) {
-		return (V) toBaseStandardVo(entity);
-	}
-
 }

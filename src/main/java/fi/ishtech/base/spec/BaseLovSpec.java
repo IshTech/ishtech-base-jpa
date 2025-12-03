@@ -1,5 +1,6 @@
 package fi.ishtech.base.spec;
 
+import java.io.Serial;
 import java.util.List;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -25,6 +26,7 @@ import fi.ishtech.base.payload.filter.BaseLovEntityFilterParams;
 public abstract class BaseLovSpec<T extends BaseLovEntity, P extends BaseLovEntityFilterParams>
 		extends BaseLovWithoutLovLangSpec<T, P> {
 
+	@Serial
 	private static final long serialVersionUID = 924267496795483499L;
 
 	public BaseLovSpec(P params) {

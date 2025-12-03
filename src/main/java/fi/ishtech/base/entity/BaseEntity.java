@@ -1,5 +1,6 @@
 package fi.ishtech.base.entity;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.persistence.MappedSuperclass;
@@ -19,6 +20,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public abstract class BaseEntity implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -8407271875822469618L;
 
 }

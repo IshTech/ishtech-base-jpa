@@ -5,6 +5,7 @@ import static fi.ishtech.base.entity.BaseAuditableEntity_.CREATED_BY;
 import static fi.ishtech.base.entity.BaseAuditableEntity_.UPDATED_AT;
 import static fi.ishtech.base.entity.BaseAuditableEntity_.UPDATED_BY;
 
+import java.io.Serial;
 import java.util.List;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -27,6 +28,7 @@ import fi.ishtech.base.payload.filter.BaseAuditableEntityFilterParams;
 public abstract class BaseAuditableSpec<T extends BaseAuditableEntity, P extends BaseAuditableEntityFilterParams>
 		extends BaseSpec<T, P> {
 
+	@Serial
 	private static final long serialVersionUID = 8663456839776921171L;
 
 	/**

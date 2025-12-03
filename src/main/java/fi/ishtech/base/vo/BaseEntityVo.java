@@ -1,5 +1,9 @@
 package fi.ishtech.base.vo;
 
+import java.io.Serial;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -12,8 +16,10 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
+@JsonAutoDetect
 public class BaseEntityVo implements BaseVo {
 
+	@Serial
 	private static final long serialVersionUID = -1227556520257089092L;
 
 }

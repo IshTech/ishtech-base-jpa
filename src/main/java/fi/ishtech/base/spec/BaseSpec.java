@@ -1,5 +1,6 @@
 package fi.ishtech.base.spec;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams> implements Specification<T> {
 
+	@Serial
 	private static final long serialVersionUID = -3229114388128110817L;
 
 	protected static final String PERCENT = "%";
@@ -174,6 +176,20 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 	}
 
 	protected void addPredicateLE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Long attribValue,
+			String attribName) {
+		if (attribValue != null) {
+			predicates.add(cb.le(root.get(attribName), attribValue));
+		}
+	}
+
+	protected void addPredicateGE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Short attribValue,
+			String attribName) {
+		if (attribValue != null) {
+			predicates.add(cb.ge(root.get(attribName), attribValue));
+		}
+	}
+
+	protected void addPredicateLE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Short attribValue,
 			String attribName) {
 		if (attribValue != null) {
 			predicates.add(cb.le(root.get(attribName), attribValue));

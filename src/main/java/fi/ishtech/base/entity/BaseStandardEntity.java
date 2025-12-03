@@ -1,5 +1,6 @@
 package fi.ishtech.base.entity;
 
+import java.io.Serial;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -26,6 +27,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public abstract class BaseStandardEntity extends BaseStandardNoIdEntity {
 
+	@Serial
 	private static final long serialVersionUID = -8743230493639803507L;
 
 	@Id

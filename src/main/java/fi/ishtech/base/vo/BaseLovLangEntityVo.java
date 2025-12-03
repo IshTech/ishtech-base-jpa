@@ -1,5 +1,7 @@
 package fi.ishtech.base.vo;
 
+import java.io.Serial;
+
 import jakarta.validation.constraints.Pattern;
 
 import lombok.Data;
@@ -18,6 +20,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class BaseLovLangEntityVo<T extends BaseLovEntityVo> extends BaseStandardEntityVo {
 
+	@Serial
 	private static final long serialVersionUID = -6143956753977250377L;
 
 	protected Long lovId;

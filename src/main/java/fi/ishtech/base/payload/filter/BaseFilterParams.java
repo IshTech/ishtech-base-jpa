@@ -1,5 +1,7 @@
 package fi.ishtech.base.payload.filter;
 
+import java.io.Serial;
+
 import fi.ishtech.base.vo.BaseVo;
 
 import lombok.Data;
@@ -16,6 +18,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public abstract class BaseFilterParams implements BaseVo {
 
+	@Serial
 	private static final long serialVersionUID = 7672866470370773784L;
 
 }

@@ -2,6 +2,7 @@ package fi.ishtech.base.spec;
 
 import static fi.ishtech.base.entity.BaseStandardEntity_.ID;
 
+import java.io.Serial;
 import java.util.List;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -24,6 +25,7 @@ import fi.ishtech.base.payload.filter.BaseStandardEntityFilterParams;
 public abstract class BaseStandardSpec<T extends BaseStandardEntity, P extends BaseStandardEntityFilterParams>
 		extends BaseStandardNoIdSpec<T, P> {
 
+	@Serial
 	private static final long serialVersionUID = -8725936771922443033L;
 
 	public BaseStandardSpec(P params) {

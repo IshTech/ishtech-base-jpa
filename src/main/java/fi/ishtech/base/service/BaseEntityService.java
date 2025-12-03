@@ -65,18 +65,4 @@ public interface BaseEntityService<T extends BaseEntity, V extends BaseEntityVo,
 		return getRepo().findAll(spec, pageable);
 	}
 
-	/**
-	 * Finds all based on specification and pagination and maps to vo
-	 *
-	 * @param spec     {@link BaseSpec}
-	 * @param pageable {@link Pageable}
-	 *
-	 * @see BaseFilterParams
-	 *
-	 * @return {@link Page} of {@link BaseEntity}
-	 */
-	default Page<V> findAllAndMapToVo(BaseSpec<T, ? extends BaseFilterParams> spec, Pageable pageable) {
-		return this.findAll(spec, pageable).map(getMapper()::toBriefVo);
-	}
-
 }
