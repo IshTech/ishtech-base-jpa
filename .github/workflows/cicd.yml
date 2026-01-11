@@ -19,7 +19,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: validate project version
+      - name: Validate Project Version
         id: validate-project-version
         run: |
           echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
@@ -80,7 +80,9 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: source-code
-          path: ./
+          path: |
+            ./
+            ./.mvn/**
 
   build:
     needs: validate-version
@@ -102,6 +104,8 @@ jobs:
 
       - name: Maven Setup
         run: |
+          ls -al .
+          tree .
           chmod +x mvnw
           echo "MAVEN_CLI_OPTS=\"-B -q -s .mvn/settings.xml\"" >> $GITHUB_ENV
 
