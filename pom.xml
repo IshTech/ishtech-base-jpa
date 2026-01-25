@@ -18,7 +18,7 @@
 
 	<name>ishtech-base-jpa</name>
 	<description>Base project for Spring Boot JPA</description>
-	<url>https://www.ishtech.fi/projects/ishtech-base-jpa</url>
+	<url>https://www.ishtech.fi/libs/ishtech-base-jpa</url>
 
 	<organization>
 		<name>IshTech</name>
@@ -55,7 +55,6 @@
 		<mockito-core.version>5.21.0</mockito-core.version>
 
 		<maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
-
 		<central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
 	</properties>
 
@@ -196,8 +195,11 @@
 							<goal>jar</goal>
 						</goals>
 						<configuration>
-							<excludedocfilessubdir>**/generated-sources/**</excludedocfilessubdir>
-							<excludedocfilessubdir>**/generated-test-sources/**</excludedocfilessubdir>
+							<sourceFileExcludes>
+								<sourceFileExclude>**/generated-sources/**</sourceFileExclude>
+								<sourceFileExclude>**/generated-test-sources/**</sourceFileExclude>
+							</sourceFileExcludes>
+							<failOnError>false</failOnError>
 						</configuration>
 					</execution>
 				</executions>
