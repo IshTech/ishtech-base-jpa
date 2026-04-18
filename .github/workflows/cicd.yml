@@ -85,6 +85,7 @@ jobs:
           path: |
             ./
             ./.mvn/**
+          include-hidden-files: true
 
   build:
     needs: validate-version
