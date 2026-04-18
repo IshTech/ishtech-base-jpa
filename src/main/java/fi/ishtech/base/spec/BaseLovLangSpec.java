@@ -29,6 +29,11 @@ public abstract class BaseLovLangSpec<T extends BaseLovLangEntity<?>, P extends 
 	@Serial
 	private static final long serialVersionUID = 8033949711131377404L;
 
+	/**
+	 * Constructor with filter params
+	 *
+	 * @param params P
+	 */
 	public BaseLovLangSpec(P params) {
 		super(params);
 	}

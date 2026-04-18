@@ -43,6 +43,14 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 	@Getter
 	private final P params;
 
+	/**
+	 * Combines list of predicates with {@code and}
+	 *
+	 * @param root  {@link Root}&lt;T&gt;
+	 * @param query {@link CriteriaQuery}
+	 * @param cb    {@link CriteriaBuilder}
+	 * @return {@link Predicate}
+	 */
 	@Override
 	public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 		List<Predicate> predicates = toPredicateList(root, cb);
@@ -52,10 +60,26 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		return cb.and(predicates.toArray(predicatesArray));
 	}
 
+	/**
+	 * Makes list of predicates for attributes in entity
+	 *
+	 * @param root {@link Root}&lt;T&gt;
+	 * @param cb   {@link CriteriaBuilder}
+	 * @return {@link List}&lt;{@link Predicate}&gt;
+	 */
 	protected List<Predicate> toPredicateList(Root<T> root, CriteriaBuilder cb) {
 		return new ArrayList<>();
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code like} for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link String}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateLike(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, String attribValue,
 			String attribName) {
 		if (StringUtils.hasText(attribValue)) {
@@ -63,6 +87,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code like} for attribute in join
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param join        {@link Join}
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link String}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateLike(List<Predicate> predicates, Join<? extends BaseEntity, ? extends BaseEntity> join,
 			CriteriaBuilder cb, String attribValue, String attribName) {
 		if (StringUtils.hasText(attribValue)) {
@@ -70,6 +103,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code like} for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Number}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateLike(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Number attribValue,
 			String attribName) {
 		if (attribValue != null) {
@@ -77,6 +119,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code like} for attribute in join
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param join        {@link Join}
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Number}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateLike(List<Predicate> predicates, Join<? extends BaseEntity, ? extends BaseEntity> join,
 			CriteriaBuilder cb, Number attribValue, String attribName) {
 		if (attribValue != null) {
@@ -84,6 +135,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code equal} for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link String}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateEq(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, String attribValue,
 			String attribName) {
 		if (StringUtils.hasText(attribValue)) {
@@ -91,6 +151,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code equal} for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Number}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateEq(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Number attribValue,
 			String attribName) {
 		if (attribValue != null) {
@@ -98,6 +167,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code equal} for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Boolean}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateEq(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Boolean attribValue,
 			String attribName) {
 		if (attribValue != null) {
@@ -105,6 +183,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code equal} for attribute in join
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param join        {@link Join}
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link String}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateEq(List<Predicate> predicates, Join<? extends BaseEntity, ? extends BaseEntity> join,
 			CriteriaBuilder cb, String attribValue, String attribName) {
 		if (attribValue != null) {
@@ -112,6 +199,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code equal} for attribute in join
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param join        {@link Join}
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Number}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateEq(List<Predicate> predicates, Join<? extends BaseEntity, ? extends BaseEntity> join,
 			CriteriaBuilder cb, Number attribValue, String attribName) {
 		if (attribValue != null) {
@@ -119,6 +215,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code equal} for attribute in join
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param join        {@link Join}
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Number}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateEq(List<Predicate> predicates, Join<? extends BaseEntity, ? extends BaseEntity> join,
 			CriteriaBuilder cb, Boolean attribValue, String attribName) {
 		if (attribValue != null) {
@@ -126,6 +231,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code in} for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Object}[]
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateIn(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Object[] attribValue,
 			String attribName) {
 		if (!ArrayUtils.isEmpty(attribValue)) {
@@ -133,6 +247,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code in} for attribute in join
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param join        {@link Join}
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Object}[]
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateIn(List<Predicate> predicates, Join<? extends BaseEntity, ? extends BaseEntity> join,
 			CriteriaBuilder cb, Object[] attribValue, String attribName) {
 		if (!ArrayUtils.isEmpty(attribValue)) {
@@ -140,6 +263,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code ge} (greater than or equal) for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link BigDecimal}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateGE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, BigDecimal attribValue,
 			String attribName) {
 		if (attribValue != null) {
@@ -147,6 +279,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code le} (less than or equal) for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link BigDecimal}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateLE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, BigDecimal attribValue,
 			String attribName) {
 		if (attribValue != null) {
@@ -154,6 +295,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code ge} (greater than or equal) for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Integer}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateGE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Integer attribValue,
 			String attribName) {
 		if (attribValue != null) {
@@ -161,6 +311,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code le} (less than or equal) for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Integer}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateLE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Integer attribValue,
 			String attribName) {
 		if (attribValue != null) {
@@ -168,6 +327,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code ge} (greater than or equal) for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Long}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateGE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Long attribValue,
 			String attribName) {
 		if (attribValue != null) {
@@ -175,6 +343,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code le} (less than or equal) for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link Long}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateLE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Long attribValue,
 			String attribName) {
 		if (attribValue != null) {
@@ -182,6 +359,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code ge} (greater than or equal) for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link String}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateGE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Short attribValue,
 			String attribName) {
 		if (attribValue != null) {
@@ -189,6 +375,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code le} (less than or equal) for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link String}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateLE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb, Short attribValue,
 			String attribName) {
 		if (attribValue != null) {
@@ -196,6 +391,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code ge} (greater than or equal) for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link LocalDateTime}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateGE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb,
 			LocalDateTime attribValue, String attribName) {
 		if (attribValue != null) {
@@ -203,6 +407,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Add {@link Predicate} for {@code le} (less than or equal) for attribute in root
+	 *
+	 * @param predicates  {@link List}&lt;{@link Predicate}&gt;
+	 * @param root        {@link Root}&lt;T&gt;
+	 * @param cb          {@link CriteriaBuilder}
+	 * @param attribValue {@link LocalDateTime}
+	 * @param attribName  {@link String}
+	 */
 	protected void addPredicateLE(List<Predicate> predicates, Root<T> root, CriteriaBuilder cb,
 			LocalDateTime attribValue, String attribName) {
 		if (attribValue != null) {
@@ -210,6 +423,15 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		}
 	}
 
+	/**
+	 * Get join (if not already present) from root and join type
+	 *
+	 * @param <X>        Entity to join
+	 * @param join       {@link Join}&lt;X,Y&gt;
+	 * @param root       {@link Root}&lt;T&gt;
+	 * @param joinAttrib {@link String}
+	 * @return {@link Join}&lt;X,Y&gt;
+	 */
 	@SuppressWarnings("hiding")
 	protected <T, X> Join<T, X> getJoin(Join<T, X> join, Root<T> root, String joinAttrib) {
 		if (join == null) {
@@ -218,6 +440,16 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		return join;
 	}
 
+	/**
+	 * Get join (if not already present) from root and join type
+	 *
+	 * @param <X>        Entity to join
+	 * @param join       {@link Join}&lt;X,Y&gt;
+	 * @param root       {@link Root}&lt;T&gt;
+	 * @param joinAttrib {@link String}
+	 * @param joinType   {@link JoinType}
+	 * @return {@link Join}&lt;X,Y&gt;
+	 */
 	@SuppressWarnings("hiding")
 	protected <T, X> Join<T, X> getJoin(Join<T, X> join, Root<T> root, String joinAttrib, JoinType joinType) {
 		if (join == null) {
@@ -226,6 +458,16 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		return join;
 	}
 
+	/**
+	 * Get join (if not already present) from a parent join
+	 *
+	 * @param <X>        Entity to join
+	 * @param <Y>        Entity to join
+	 * @param join       {@link Join}&lt;X,Y&gt;
+	 * @param parentJoin {@link Join}&lt;T,X&gt;
+	 * @param joinAttrib {@link String}
+	 * @return {@link Join}&lt;X,Y&gt;
+	 */
 	protected <X, Y> Join<X, Y> getDeepJoin(Join<X, Y> join, Join<T, X> parentJoin, String joinAttrib) {
 		if (join == null) {
 			join = (Join<X, Y>) parentJoin.<X, Y>join(joinAttrib);
@@ -233,6 +475,17 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 		return join;
 	}
 
+	/**
+	 * Get join (if not already present) from a parent join and join type
+	 *
+	 * @param <X>        Entity to join
+	 * @param <Y>        Entity to join
+	 * @param join       {@link Join}&lt;X,Y&gt;
+	 * @param parentJoin {@link Join}&lt;T,X&gt;
+	 * @param joinAttrib {@link String}
+	 * @param joinType   {@link JoinType}
+	 * @return {@link Join}&lt;X,Y&gt;
+	 */
 	protected <X, Y> Join<X, Y> getDeepJoin(Join<X, Y> join, Join<T, X> parentJoin, String joinAttrib,
 			JoinType joinType) {
 		if (join == null) {
@@ -256,7 +509,7 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 	/**
 	 * TODO: move to some util class
 	 *
-	 * @param input
+	 * @param input {@link String}
 	 *
 	 * @return input padded with % on either side
 	 */
@@ -267,7 +520,7 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 	/**
 	 * TODO: move to some util class
 	 *
-	 * @param input
+	 * @param input {@link Number}
 	 *
 	 * @return input padded with % on either side
 	 */
@@ -278,7 +531,7 @@ public abstract class BaseSpec<T extends BaseEntity, P extends BaseFilterParams>
 	/**
 	 * TODO: move to some util class
 	 *
-	 * @param input
+	 * @param input {@link Integer}
 	 *
 	 * @return input padded with % on either side
 	 */
