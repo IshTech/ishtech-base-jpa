@@ -83,6 +83,7 @@ jobs:
           path: |
             ./
             ./.mvn/**
+            !./.git*
           include-hidden-files: true
 
   build:
