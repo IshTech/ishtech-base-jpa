@@ -30,8 +30,6 @@ jobs:
           RELEASE_TAG="${{ github.event.release.tag_name }}"
           echo "RELEASE_TAG: $RELEASE_TAG"
 
-          ls -al .
-          tree .
           chmod +x mvnw
 
           # mvnw does not need Java preinstalled — wrapper downloads it automatically
@@ -144,6 +142,8 @@ jobs:
 
       - name: Maven Setup
         run: |
+          ls -al .
+          tree .
           chmod +x mvnw
           echo "MAVEN_CLI_OPTS=\"-B -q -s .mvn/settings.xml\"" >> $GITHUB_ENV
 
