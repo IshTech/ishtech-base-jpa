@@ -29,6 +29,11 @@ public abstract class BaseLovSpec<T extends BaseLovEntity, P extends BaseLovEnti
 	@Serial
 	private static final long serialVersionUID = 924267496795483499L;
 
+	/**
+	 * Constructor with filter params
+	 *
+	 * @param params P
+	 */
 	public BaseLovSpec(P params) {
 		super(params);
 	}

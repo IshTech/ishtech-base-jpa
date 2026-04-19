@@ -27,6 +27,11 @@ public abstract class BaseMasterSpec<T extends BaseMasterEntity, P extends BaseM
 	@Serial
 	private static final long serialVersionUID = -7703698994763402281L;
 
+	/**
+	 * Constructor with filter params
+	 *
+	 * @param params P
+	 */
 	public BaseMasterSpec(P params) {
 		super(params);
 	}

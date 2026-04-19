@@ -18,8 +18,20 @@ import fi.ishtech.base.entity.BaseMasterEntity;
 @NoRepositoryBean
 public interface BaseMasterRepo<T extends BaseMasterEntity> extends BaseStandardRepo<T> {
 
+	/**
+	 * Find by name
+	 *
+	 * @param name {@link String}
+	 * @return {@link Optional}&lt;T&gt;
+	 */
 	Optional<T> findOneByName(String name);
 
+	/**
+	 * Find ID by name
+	 *
+	 * @param name {@link String}
+	 * @return ID {@link Long}
+	 */
 	@Query("SELECT u.id FROM #{#entityName} u WHERE u.name = :name")
 	Long findIdByName(@Param("name") String name);
 

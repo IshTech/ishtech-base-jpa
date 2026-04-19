@@ -28,6 +28,11 @@ public abstract class BaseStandardSpec<T extends BaseStandardEntity, P extends B
 	@Serial
 	private static final long serialVersionUID = -8725936771922443033L;
 
+	/**
+	 * Constructor with filter params
+	 *
+	 * @param params P
+	 */
 	public BaseStandardSpec(P params) {
 		super(params);
 	}

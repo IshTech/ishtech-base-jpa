@@ -21,9 +21,15 @@ public abstract class BaseStandardEntityFilterParams extends BaseStandardNoIdEnt
 	@Serial
 	private static final long serialVersionUID = 6966264259842692602L;
 
+	/**
+	 * ID
+	 */
 	@PositiveOrZero
 	protected Long id;
 
+	/**
+	 * To decide apply equal or like search for ID
+	 */
 	protected boolean idLikeSearch = false;
 
 }

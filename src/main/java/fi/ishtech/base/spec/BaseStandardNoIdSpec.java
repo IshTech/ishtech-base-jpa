@@ -29,6 +29,11 @@ public abstract class BaseStandardNoIdSpec<T extends BaseStandardNoIdEntity, P e
 	@Serial
 	private static final long serialVersionUID = -5813791296499595189L;
 
+	/**
+	 * Constructor with filter params
+	 *
+	 * @param params P
+	 */
 	public BaseStandardNoIdSpec(P params) {
 		super(params);
 	}

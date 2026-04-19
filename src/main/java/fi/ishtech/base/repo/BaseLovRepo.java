@@ -19,11 +19,28 @@ import fi.ishtech.base.entity.BaseLovEntity;
 @NoRepositoryBean
 public interface BaseLovRepo<T extends BaseLovEntity> extends BaseStandardRepo<T> {
 
+	/**
+	 * Finds by name
+	 *
+	 * @param name {@link String}
+	 * @return {@link Optional}&lt;T&gt;
+	 */
 	Optional<T> findOneByName(String name);
 
+	/**
+	 * Find ID by name
+	 *
+	 * @param name {@link String}
+	 * @return ID {@link Long}
+	 */
 	@Query("SELECT u.id FROM #{#entityName} u WHERE u.name = :name")
 	Long findIdByName(@Param("name") String name);
 
+	/**
+	 * Finds active and order by displayOrder
+	 *
+	 * @return {@link List}&lt;T&gt;
+	 */
 	List<T> findAllByIsActiveTrueOrderByDisplayOrder();
 
 }

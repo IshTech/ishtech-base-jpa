@@ -27,6 +27,11 @@ public abstract class BaseLovWithoutLovLangSpec<T extends BaseLovEntity, P exten
 	@Serial
 	private static final long serialVersionUID = 250453381737732289L;
 
+	/**
+	 * Constructor with filter params
+	 *
+	 * @param params P
+	 */
 	public BaseLovWithoutLovLangSpec(P params) {
 		super(params);
 	}

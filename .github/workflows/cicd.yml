@@ -7,6 +7,16 @@ on:
   push:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      manual_deploy:
+        description: "Trigger manual deployment"
+        required: true
+        type: choice
+        options:
+          - "false"
+          - "true"
+        default: "false"
 
 jobs:
 
@@ -19,7 +29,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: validate project version
+      - name: Validate Project Version
         id: validate-project-version
         run: |
           echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
@@ -77,10 +87,14 @@ jobs:
           echo "APP_VERSION=$APP_VERSION" >> $GITHUB_OUTPUT
 
       - name: Upload repo for downstream jobs
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: source-code
-          path: ./
+          path: |
+            ./
+            ./.mvn/**
+            !./.git*
+          include-hidden-files: true
 
   build:
     needs: validate-version
@@ -88,22 +102,23 @@ jobs:
 
     steps:
       - name: Download source-code from validate-version
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           name: source-code
-          path: ./
 
-      - name: Set up JDK 25 + Maven cache
+      - name: Set up JDK 21 + Maven cache
         uses: actions/setup-java@v5
         with:
-          java-version: '25'
+          java-version: '21'
           distribution: 'temurin'
           cache: maven
 
       - name: Maven Setup
         run: |
+          ls -al .
+          tree .
           chmod +x mvnw
-          echo "MAVEN_CLI_OPTS=\"-B -q -s .mvn/settings.xml\"" >> $GITHUB_ENV
+          echo "MAVEN_CLI_OPTS=-B -q -s .mvn/settings.xml" >> $GITHUB_ENV
 
       - name: Maven Compile
         run: |
@@ -116,33 +131,42 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    # 'release' environment → automatic
-    # 'manual-deploy' environment → manual approval for all non-release events
-    environment:
-      name: ${{ github.event_name == 'release' && 'release' || 'manual-deploy' }}
+
+    # Only run for release OR manual trigger
+    if: |
+      github.event_name == 'release' ||
+      (
+        github.event_name == 'workflow_dispatch' &&
+        inputs.manual_deploy == 'true' &&
+        github.ref_name != 'main'
+      )
 
     steps:
       - name: Download source-code from validate-version
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           name: source-code
           path: ./
 
-      - name: Set up JDK 25 + Maven cache
-        if: github.event_name == 'release'
+      - name: Set up JDK 21 + Maven cache
         uses: actions/setup-java@v5
         with:
-          java-version: '25'
+          java-version: '21'
           distribution: 'temurin'
           cache: maven
 
       - name: Maven Setup
         run: |
           chmod +x mvnw
-          echo "MAVEN_CLI_OPTS=\"-B -q -s .mvn/settings.xml\"" >> $GITHUB_ENV
+          echo "MAVEN_CLI_OPTS=-B -q -s .mvn/settings.xml" >> $GITHUB_ENV
+
+      - name: Import GPG Key
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
+          # Verify key was imported
+          #gpg --list-secret-keys --keyid-format LONG
 
       - name: Publish to Maven Central Sonatype
-        if: github.event_name == 'release'
         env:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
@@ -150,7 +174,5 @@ jobs:
 
         run: |
           ./mvnw $MAVEN_CLI_OPTS deploy \
-            -Dmaven.main.skip=true \
             -DskipTests=true \
-            -pl "ishtech-springboot-jwtauth-lib,ishtech-springboot-jwtauth-api" \
             -P gpg -P central-publishing -am

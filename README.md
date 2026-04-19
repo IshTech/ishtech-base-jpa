@@ -29,3 +29,29 @@ implementation("fi.ishtech.base:ishtech-base-jpa:${ishtechBaseJpaVersion}")
 ```
 ./mvnw clean deploy -P gpg -P central-publishing
 ```
+
+## CI-CD
+### Workflow Jobs
+- validate-version
+    - Validates project version against branch/tag rules
+    - Ensures:
+        - main → RELEASE version (no `-SNAPSHOT` in `pom.xml`)
+        - Non-main → `-SNAPSHOT` version
+        - Release tag matches `pom.xml` version
+- build
+    - Runs Maven:
+        - Compile
+        - Test (JUnit tests)
+- deploy
+    - Publishes artifacts to Maven Central (Sonatype)
+    - ✅ Automatic Deploy
+        - When a release is published
+        - Tag must match pom.xml version (non-SNAPSHOT)
+    - ⚙️ Manual Deploy
+        - Triggered via workflow_dispatch
+        - Requires: manual_deploy = true
+        - Allowed only from non-main branches
+    - ❌ No Deploy
+        - When manual_deploy = false (default)
+        - On normal push
+        - On main if no release tag
