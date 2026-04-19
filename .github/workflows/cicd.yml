@@ -170,6 +170,5 @@ jobs:
 
         run: |
           ./mvnw $MAVEN_CLI_OPTS deploy \
-            -Dmaven.main.skip=true \
             -DskipTests=true \
             -P gpg -P central-publishing -am
