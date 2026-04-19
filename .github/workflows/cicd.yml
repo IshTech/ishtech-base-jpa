@@ -128,16 +128,6 @@ jobs:
         run: |
           ./mvnw $MAVEN_CLI_OPTS test -Dmaven.main.skip=true
 
-      - name: Upload repo with comipled for downstream jobs
-        uses: actions/upload-artifact@v7
-        with:
-          name: source-target-code
-          path: |
-            ./
-            ./.mvn/**
-            !./.git*
-          include-hidden-files: true
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -155,7 +145,7 @@ jobs:
       - name: Download source-code from validate-version
         uses: actions/download-artifact@v8
         with:
-          name: source-target-code
+          name: source-code
           path: ./
 
       - name: Set up JDK 21 + Maven cache
