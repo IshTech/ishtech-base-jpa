@@ -115,7 +115,6 @@ jobs:
 
       - name: Maven Setup
         run: |
-          ls -al .
           tree .
           chmod +x mvnw
           echo "MAVEN_CLI_OPTS=-B -q -s .mvn/settings.xml" >> $GITHUB_ENV
@@ -129,7 +128,7 @@ jobs:
           ./mvnw $MAVEN_CLI_OPTS test -Dmaven.main.skip=true
 
   deploy:
-    needs: build
+    needs: [validate-version, build]
     runs-on: ubuntu-latest
 
     # Only run for release OR manual trigger
