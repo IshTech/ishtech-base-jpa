@@ -67,6 +67,10 @@ jobs:
                 echo "❌ ERROR: main branch must use RELEASE version (no -SNAPSHOT). Found: $APP_VERSION"
                 exit 1
               fi
+              if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" && "$MANUAL_DEPLOY" == "true" ]]; then
+                echo "❌ ERROR: main can only be released via a published release tag, not manual deploy."
+                exit 1
+              fi
 
             # ---------- DEV or ANY OTHER BRANCH ----------
             else
