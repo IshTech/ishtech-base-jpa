@@ -19,7 +19,7 @@ on:
         default: "false"
 
 jobs:
-  ci:
+  maven-build-deploy:
     runs-on: ubuntu-latest
 
     env:
