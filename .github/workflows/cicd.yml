@@ -44,7 +44,7 @@ jobs:
           MANUAL_DEPLOY: ${{ inputs.manual_deploy }}
         run: |
           chmod +x mvnw
-          APP_VERSION=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout)
+          APP_VERSION=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout 2>/dev/null)
           echo "Event=$GITHUB_EVENT_NAME  Ref=$GITHUB_REF_NAME ($GITHUB_REF_TYPE)  Version=$APP_VERSION"
 
           # ---------- RELEASE RULE ----------
