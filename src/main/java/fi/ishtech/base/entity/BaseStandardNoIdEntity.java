@@ -5,6 +5,8 @@ import java.io.Serial;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -26,17 +28,22 @@ public abstract class BaseStandardNoIdEntity extends BaseEntity {
 	@Column(name = "description", nullable = true, insertable = true, updatable = true)
 	protected String description;
 
+	/**
+	 * Left {@code null} on a newly constructed entity so that {@code @DynamicInsert} omits the column from the INSERT
+	 * and the {@code DEFAULT TRUE} of the database column applies. An explicitly set value is always written.
+	 */
 	@Column(name = "is_active", nullable = true, insertable = true, updatable = true)
-	protected boolean isActive;
+	@ColumnDefault("true")
+	protected Boolean isActive;
 
 	/**
 	 * Setter for isActive.
 	 *
 	 * @param isActive
 	 *
-	 * @see #setIsActive(boolean)
+	 * @see #setIsActive(Boolean)
 	 */
-	public void setActive(boolean isActive) {
+	public void setActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
 
@@ -45,9 +52,9 @@ public abstract class BaseStandardNoIdEntity extends BaseEntity {
 	 *
 	 * @see #getIsActive()
 	 *
-	 * @return boolean
+	 * @return {@link Boolean}, {@code null} when not yet defaulted by the database
 	 */
-	public boolean isActive() {
+	public Boolean getActive() {
 		return this.isActive;
 	}
 
@@ -56,21 +63,21 @@ public abstract class BaseStandardNoIdEntity extends BaseEntity {
 	 *
 	 * @param isActive
 	 *
-	 * @see #setActive(boolean)
+	 * @see #setActive(Boolean)
 	 */
-	public void setIsActive(boolean isActive) {
+	public void setIsActive(Boolean isActive) {
 		this.setActive(isActive);
 	}
 
 	/**
 	 * To support noIsPrefix in dependent classes.
 	 *
-	 * @see #isActive()
+	 * @see #getActive()
 	 *
-	 * @return boolean
+	 * @return {@link Boolean}, {@code null} when not yet defaulted by the database
 	 */
-	public boolean getIsActive() {
-		return this.isActive();
+	public Boolean getIsActive() {
+		return this.getActive();
 	}
 
 }
