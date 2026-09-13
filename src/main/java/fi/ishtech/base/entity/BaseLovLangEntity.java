@@ -8,7 +8,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MappedSuperclass;
 
-import fi.ishtech.core.i18n.enums.LangEnum;
+import fi.ishtech.common.i18n.enums.LangEnum;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
