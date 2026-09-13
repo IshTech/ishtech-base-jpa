@@ -10,7 +10,7 @@ import fi.ishtech.base.mapper.BaseLovLangMapper;
 import fi.ishtech.base.repo.BaseLovLangRepo;
 import fi.ishtech.base.vo.BaseLovEntityVo;
 import fi.ishtech.base.vo.BaseLovLangEntityVo;
-import fi.ishtech.core.i18n.enums.LangEnum;
+import fi.ishtech.common.i18n.enums.LangEnum;
 
 /**
  * Base interface for operations on lov lang entity classes
