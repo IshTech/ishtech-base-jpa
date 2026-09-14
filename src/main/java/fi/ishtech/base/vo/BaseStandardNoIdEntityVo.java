@@ -45,6 +45,8 @@ public class BaseStandardNoIdEntityVo extends BaseEntityVo {
 
 	/**
 	 * Getter for isActive.
+	 * <p>
+	 * TODO: isActive() is removed, so need to test its impact and fix.
 	 *
 	 * @see #getIsActive()
 	 *
