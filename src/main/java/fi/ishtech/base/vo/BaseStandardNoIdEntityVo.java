@@ -23,7 +23,11 @@ public class BaseStandardNoIdEntityVo extends BaseEntityVo {
 	@Serial
 	private static final long serialVersionUID = -7333245854918653037L;
 
-	protected boolean isActive;
+	/**
+	 * {@code null} means "not supplied" on an incoming payload, which lets a partial update leave the stored value
+	 * untouched instead of overwriting it with the primitive default {@code false}.
+	 */
+	protected Boolean isActive;
 
 	@JsonProperty
 	protected String description;
@@ -33,9 +37,9 @@ public class BaseStandardNoIdEntityVo extends BaseEntityVo {
 	 *
 	 * @param isActive
 	 *
-	 * @see #setIsActive(boolean)
+	 * @see #setIsActive(Boolean)
 	 */
-	public void setActive(boolean isActive) {
+	public void setActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
 
@@ -44,10 +48,10 @@ public class BaseStandardNoIdEntityVo extends BaseEntityVo {
 	 *
 	 * @see #getIsActive()
 	 *
-	 * @return boolean
+	 * @return {@link Boolean}, {@code null} when not supplied
 	 */
 	@JsonIgnore
-	public boolean isActive() {
+	public Boolean getActive() {
 		return this.isActive;
 	}
 
@@ -56,22 +60,22 @@ public class BaseStandardNoIdEntityVo extends BaseEntityVo {
 	 *
 	 * @param isActive
 	 *
-	 * @see #setActive(boolean)
+	 * @see #setActive(Boolean)
 	 */
-	public void setIsActive(boolean isActive) {
+	public void setIsActive(Boolean isActive) {
 		this.setActive(isActive);
 	}
 
 	/**
 	 * To support noIsPrefix in dependent classes.
 	 *
-	 * @see #isActive()
+	 * @see #getActive()
 	 *
-	 * @return boolean
+	 * @return {@link Boolean}, {@code null} when not supplied
 	 */
 	@JsonGetter
-	public boolean getIsActive() {
-		return this.isActive();
+	public Boolean getIsActive() {
+		return this.getActive();
 	}
 
 }
