@@ -15,7 +15,7 @@ The docs are the source of truth. Don't guess commands: open the matching file a
 | Before you... | Read |
 |---|---|
 | work out what the library does and how consumers add it | `README.md`, the introduction and section "Usage" |
-| run test Level 1 (build with tests) | `README.md` has no build section yet (reported to the owner as a doc gap). Until it has one, use `./mvnw clean install` |
+| run test Level 1 (build with tests) | `README.md`, section "Build", subsection "Local Maven Build" |
 | publish (only when the owner asks) | `README.md`, section "Deploy to Sonatype Central" |
 | change the version or anything release-related, or check what CI enforces | `README.md`, section "CI-CD", then `.github/workflows/cicd.yml` |
 | report or fix a bug | `KNOWN-ISSUES.md` (doesn't exist yet; create it as `rules/documentation.md` describes when the first issue is recorded) |

@@ -24,6 +24,26 @@ This helps keep business modules lightweight, letting them focus only on domain-
 implementation("fi.ishtech.base:ishtech-base-jpa:${ishtechBaseJpaVersion}")
 ```
 
+## Build
+
+This is a library; it **does not run** as a standalone application.
+
+### Maven
+
+#### Local Maven Build
+
+- Build without tests
+
+```
+./mvnw clean install -DskipTests
+```
+
+- Build with Junit tests
+
+```
+./mvnw clean install
+```
+
 ## Deploy to Sonatype Central
 
 ```
