@@ -44,11 +44,13 @@ This is a library; it **does not run** as a standalone application.
 ./mvnw clean install
 ```
 
-## Deploy to Sonatype Central
+## Publish to Maven Central
 
-```
-./mvnw clean deploy -P gpg -P central-publishing
-```
+- Deploy to Sonatype Central
+
+  ```
+  ./mvnw clean deploy -P gpg -P central-publishing
+  ```
 
 ## CI-CD
 ### Workflow Jobs
