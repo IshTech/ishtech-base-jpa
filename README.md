@@ -86,3 +86,7 @@ This is a library; it **does not run** as a standalone application.
         - When manual_deploy = false (default)
         - On normal push
         - On main if no release tag
+
+## Known Issues
+
+See [KNOWN-ISSUES.md](KNOWN-ISSUES.md).
