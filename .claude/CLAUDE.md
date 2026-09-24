@@ -9,7 +9,7 @@ The owner's standing instructions are in `.claude/rules/` (`owner-workflow.md`, 
 - Dependent tests apply (`rules/build-and-test.md`, section "Dependent tests"): they confirm that a change here doesn't break the projects that use `ishtech-base-jpa` and has the intended effect in them.
   - Dependent library: `ishtech-springboot-jwtauth` (`rules/repositories.md`).
   - Default dependent: [ishtech-springboot-jwtauth](https://github.com/ishtech/ishtech-springboot-jwtauth).
-  - `ishtech-base-jpa` is public on Maven Central (`README.md`, section "Deploy to Sonatype Central"), so it may have other dependents that nobody can list.
+  - `ishtech-base-jpa` is public on Maven Central (`README.md`, section "Publish to Maven Central"), so it may have other dependents that nobody can list.
 
 ## Read the doc before doing the thing
 The docs are the source of truth. Don't guess commands: open the matching file and section first, and follow its links.
@@ -18,7 +18,8 @@ The docs are the source of truth. Don't guess commands: open the matching file a
 |---|---|
 | work out what the library does and how consumers add it | `README.md`, the introduction and section "Usage" |
 | run test Level 1 (build with tests) | `README.md`, section "Build", subsection "Local Maven Build" |
-| publish (only when the owner asks) | `README.md`, section "Deploy to Sonatype Central" |
+| check the default JDK version or the other supported JDK versions | `README.md`, section "Tech stack"; for the `dev-jdkNN` branches and their releases, `rules/versions-and-releases.md`, section "JDK variants" |
+| publish (only when the owner asks) | `README.md`, section "Publish to Maven Central" |
 | change the version or anything release-related, or check what CI enforces | `README.md`, section "CI-CD", then `.github/workflows/cicd.yml` |
 | report or fix a bug | `KNOWN-ISSUES.md` (doesn't exist yet; create it as `rules/documentation.md` describes when the first issue is recorded) |
 
