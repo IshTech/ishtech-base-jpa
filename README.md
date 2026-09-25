@@ -3,6 +3,15 @@ A foundational Spring Boot JPA library providing a reusable boilerplate for enti
 It encapsulates common CRUD patterns, filtering mechanisms, and mapping logic through well-structured base classes and interfaces.
 This helps keep business modules lightweight, letting them focus only on domain-specific logic while inheriting standardized behavior and conventions.
 
+## Tech stack
+
+- JDK 25 (default)
+- Other supported JDK versions:
+  - JDK 21
+  - JDK 17
+
+Which library version to use for your JDK version: [JDK-VERSIONS.md](JDK-VERSIONS.md).
+
 ## Usage
 
 - Note: in pom.xml / build.gradle put required version number
@@ -24,11 +33,33 @@ This helps keep business modules lightweight, letting them focus only on domain-
 implementation("fi.ishtech.base:ishtech-base-jpa:${ishtechBaseJpaVersion}")
 ```
 
-## Deploy to Sonatype Central
+## Build
+
+This is a library; it **does not run** as a standalone application.
+
+### Maven
+
+#### Local Maven Build
+
+- Build without tests
 
 ```
-./mvnw clean deploy -P gpg -P central-publishing
+./mvnw clean install -DskipTests
 ```
+
+- Build with Junit tests
+
+```
+./mvnw clean install
+```
+
+## Publish to Maven Central
+
+- Deploy to Sonatype Central
+
+  ```
+  ./mvnw clean deploy -P gpg -P central-publishing
+  ```
 
 ## CI-CD
 ### Workflow Jobs
@@ -55,3 +86,7 @@ implementation("fi.ishtech.base:ishtech-base-jpa:${ishtechBaseJpaVersion}")
         - When manual_deploy = false (default)
         - On normal push
         - On main if no release tag
+
+## Known Issues
+
+See [KNOWN-ISSUES.md](KNOWN-ISSUES.md).
