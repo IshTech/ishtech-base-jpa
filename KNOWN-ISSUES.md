@@ -2,14 +2,7 @@
 
 Confirmed issues that are not fixed yet.
 
-## 1. Release CI run fails although the release is published
-**Status:** open
-**Impact:** the CI run for a GitHub release is red even when the release reaches Maven Central
-**Affects:** CI release runs (`.github/workflows/cicd.yml`, step "Publish to Maven Central Sonatype")
-
-The same issue, with its description, steps to reproduce, likely cause and suggested fix, is recorded in [ishtech-validations-java, KNOWN-ISSUES.md, issue 1](https://github.com/IshTech/ishtech-validations-java/blob/dev/KNOWN-ISSUES.md#1-release-ci-run-fails-although-the-release-is-published). This repo uses the same plugin configuration (`central-publishing-maven-plugin` with `waitUntil=published` in `pom.xml`).
-
-## 2. Default VO mapping methods of the base services return base VOs instead of the service's VO type
+## 1. Default VO mapping methods of the base services return base VOs instead of the service's VO type
 **Status:** open
 **Impact:** high for any service that doesn't override these methods: get-by-id fails with `500 Internal Server Error` (`ClassCastException`), and list APIs return `200 OK` with only the base fields, so the entity's own fields are silently missing
 **Affects:**
