@@ -61,6 +61,13 @@ This is a library; it **does not run** as a standalone application.
   ./mvnw clean deploy -P gpg -P central-publishing
   ```
 
+  - To wait longer for Maven Central to publish a release than the default of 1800 seconds, add `-DwaitMaxTime=<seconds>` with a value above 1800
+  - `waitMaxTime` has no effect on SNAPSHOT versions
+
+  ```
+  ./mvnw clean deploy -P gpg -P central-publishing -DwaitMaxTime=3600
+  ```
+
 ## CI-CD
 ### Workflow Jobs
 - validate-version
