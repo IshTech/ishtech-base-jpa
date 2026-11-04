@@ -1,6 +1,8 @@
 # Known Issues
 
-Confirmed issues that are not fixed yet.
+Known issues that have been confirmed by testing but not yet fixed. Each entry has enough detail to reproduce and fix without re-investigating.
+
+---
 
 ## 1. Default VO mapping methods of the base services return base VOs instead of the service's VO type
 **Status:** open
