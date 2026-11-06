@@ -27,7 +27,7 @@ public abstract class BaseStandardNoIdEntity extends BaseEntity {
 	protected String description;
 
 	/**
-	 * Defaults to {@code true} for newly constructed entities. <br
+	 * Defaults to {@code true} for newly constructed entities.<br>
 	 * Intentionally uses primitive {@code boolean} in the entity and boxed {@code Boolean} in the VO to prevent an
 	 * absent or {@code null} input value from overwriting the database value with {@code false}.
 	 */
