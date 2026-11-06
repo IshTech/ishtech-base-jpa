@@ -5,8 +5,6 @@ import java.io.Serial;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 
-import org.hibernate.annotations.ColumnDefault;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -28,22 +26,17 @@ public abstract class BaseStandardNoIdEntity extends BaseEntity {
 	@Column(name = "description", nullable = true, insertable = true, updatable = true)
 	protected String description;
 
-	/**
-	 * Left {@code null} on a newly constructed entity so that {@code @DynamicInsert} omits the column from the INSERT
-	 * and the {@code DEFAULT TRUE} of the database column applies. An explicitly set value is always written.
-	 */
 	@Column(name = "is_active", nullable = true, insertable = true, updatable = true)
-	@ColumnDefault("true")
-	protected Boolean isActive;
+	protected boolean isActive;
 
 	/**
 	 * Setter for isActive.
 	 *
 	 * @param isActive
 	 *
-	 * @see #setIsActive(Boolean)
+	 * @see #setIsActive(boolean)
 	 */
-	public void setActive(Boolean isActive) {
+	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
@@ -52,9 +45,9 @@ public abstract class BaseStandardNoIdEntity extends BaseEntity {
 	 *
 	 * @see #getIsActive()
 	 *
-	 * @return {@link Boolean}, {@code null} when not yet defaulted by the database
+	 * @return boolean
 	 */
-	public Boolean getActive() {
+	public boolean isActive() {
 		return this.isActive;
 	}
 
@@ -63,21 +56,21 @@ public abstract class BaseStandardNoIdEntity extends BaseEntity {
 	 *
 	 * @param isActive
 	 *
-	 * @see #setActive(Boolean)
+	 * @see #setActive(boolean)
 	 */
-	public void setIsActive(Boolean isActive) {
+	public void setIsActive(boolean isActive) {
 		this.setActive(isActive);
 	}
 
 	/**
 	 * To support noIsPrefix in dependent classes.
 	 *
-	 * @see #getActive()
+	 * @see #isActive()
 	 *
-	 * @return {@link Boolean}, {@code null} when not yet defaulted by the database
+	 * @return boolean
 	 */
-	public Boolean getIsActive() {
-		return this.getActive();
+	public boolean getIsActive() {
+		return this.isActive();
 	}
 
 }
