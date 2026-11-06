@@ -22,7 +22,7 @@ public interface BaseStandardNoIdMapper extends BaseEntityMapper {
 	 * @return Vo of type {@link BaseStandardNoIdEntityVo}
 	 */
 	@BeanMapping(ignoreByDefault = true)
-	@Mapping(source = "active", target = "active")
+	@Mapping(source = "isActive", target = "isActive")
 	@Mapping(source = "description", target = "description")
 	BaseStandardNoIdEntityVo toBaseStandardNoIdVo(BaseStandardNoIdEntity entity);
 
