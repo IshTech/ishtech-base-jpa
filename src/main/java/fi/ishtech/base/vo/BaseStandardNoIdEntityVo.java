@@ -24,8 +24,8 @@ public class BaseStandardNoIdEntityVo extends BaseEntityVo {
 	private static final long serialVersionUID = -7333245854918653037L;
 
 	/**
-	 * {@code null} means "not supplied" on an incoming payload, which lets a partial update leave the stored value
-	 * untouched instead of overwriting it with the primitive default {@code false}.
+	 * {@code null} indicates that the value was not supplied in the incoming payload, allowing partial updates to leave
+	 * the stored value unchanged.
 	 */
 	protected Boolean isActive;
 
