@@ -46,7 +46,7 @@ If `ProductServiceImpl` doesn't override the two methods:
 
 ```java
 ProductVo productVo = productService.findOneByIdAndMapToVoOrElseThrow(id);
-// ClassCastException: class fi.ishtech.base.vo.BaseStandardEntityVo cannot be cast to class ...ProductVo
+// ClassCastException: class fi.ishtech.springboot.base.vo.BaseStandardEntityVo cannot be cast to class ...ProductVo
 
 Page<ProductVo> page = productService.findAllAndMapToVo(spec, pageable);
 // no exception, but each item is a BaseStandardEntityVo: only id, isActive and description, without name and unitPrice
