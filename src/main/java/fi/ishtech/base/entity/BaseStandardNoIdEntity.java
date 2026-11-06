@@ -26,8 +26,13 @@ public abstract class BaseStandardNoIdEntity extends BaseEntity {
 	@Column(name = "description", nullable = true, insertable = true, updatable = true)
 	protected String description;
 
+	/**
+	 * Defaults to {@code true} for newly constructed entities. <br
+	 * Intentionally uses primitive {@code boolean} in the entity and boxed {@code Boolean} in the VO to prevent an
+	 * absent or {@code null} input value from overwriting the database value with {@code false}.
+	 */
 	@Column(name = "is_active", nullable = true, insertable = true, updatable = true)
-	protected boolean isActive;
+	protected boolean isActive = true;
 
 	/**
 	 * Setter for isActive.
